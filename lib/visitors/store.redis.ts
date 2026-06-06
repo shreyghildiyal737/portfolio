@@ -1,6 +1,7 @@
 import { Redis } from "@upstash/redis";
 import type { VisitorEntry, VisitorStats } from "./types";
 import type { VisitorStore } from "./store";
+import { getRedisConfig } from "./redisEnv";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Upstash Redis store (production). Keys:
@@ -22,7 +23,11 @@ function monthKey(d = new Date()): string {
 }
 
 export function createRedisStore(): VisitorStore {
-  const redis = Redis.fromEnv();
+  const config = getRedisConfig();
+  if (!config) {
+    throw new Error("createRedisStore called without Upstash Redis credentials");
+  }
+  const redis = new Redis(config);
 
   return {
     async add(entry) {

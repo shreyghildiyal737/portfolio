@@ -1,4 +1,5 @@
 import type { VisitorEntry, VisitorStats } from "./types";
+import { getRedisConfig } from "./redisEnv";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Storage seam. The rest of the app talks to VisitorStore and never knows where
@@ -29,17 +30,15 @@ export interface VisitorStore {
 let cached: VisitorStore | null = null;
 
 /**
- * Returns the configured store. Uses Upstash Redis when UPSTASH_REDIS_REST_URL
- * + UPSTASH_REDIS_REST_TOKEN are set; otherwise falls back to a local file
- * store so the feature runs with zero external setup in development.
+ * Returns the configured store. Uses Upstash Redis when its REST credentials are
+ * present (either the UPSTASH_* names or the KV_REST_API_* names that the Vercel
+ * Upstash integration provisions); otherwise falls back to a local file store so
+ * the feature runs with zero external setup in development.
  */
 export async function getVisitorStore(): Promise<VisitorStore> {
   if (cached) return cached;
 
-  const hasUpstash =
-    !!process.env.UPSTASH_REDIS_REST_URL && !!process.env.UPSTASH_REDIS_REST_TOKEN;
-
-  if (hasUpstash) {
+  if (getRedisConfig()) {
     const { createRedisStore } = await import("./store.redis");
     cached = createRedisStore();
   } else {

@@ -45,8 +45,11 @@ The local file store (`.data/`) does **not** persist on Vercel — serverless
 filesystems are ephemeral. Before going live, set these in the Vercel project
 (Settings → Environment Variables):
 
-1. `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` — create a database at
-   https://console.upstash.com/redis. Without these the guestbook silently loses data.
+1. Upstash Redis — add the **Upstash for Redis** integration from the Vercel
+   Marketplace (`vercel integration add upstash/upstash-kv`). It provisions the DB
+   and injects `KV_REST_API_URL` / `KV_REST_API_TOKEN` automatically; the store
+   reads those (or the native `UPSTASH_REDIS_REST_URL` / `_TOKEN`). Without a store
+   the guestbook silently loses data.
 2. `OWNER_TOKEN` — a long random secret. Without it the `/owner` workbench and the
    GET/DELETE/PATCH visitor routes are locked (503), never open.
 3. `VISITOR_IP_SALT` — a random string so rate-limiting/dedupe IP hashes are stable.
