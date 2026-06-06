@@ -18,6 +18,9 @@ interface FileShape {
 const DATA_DIR = path.join(process.cwd(), ".data");
 const FILE = path.join(DATA_DIR, "visitors.json");
 
+// In-memory fixed-window rate-limit buckets (local dev only; not shared/persisted).
+const rlBuckets = new Map<string, { count: number; resetAt: number }>();
+
 function monthKey(d = new Date()): string {
   return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
 }
@@ -82,6 +85,18 @@ export function createLocalStore(): VisitorStore {
       return data.entries.filter(
         (e) => e.ipHash === ipHash && new Date(e.createdAt).getTime() >= cutoff
       ).length;
+    },
+
+    async rateLimit(key, windowSec, max) {
+      // In-memory fixed window - sufficient for single-process local dev.
+      const now = Date.now();
+      const bucket = rlBuckets.get(key);
+      if (!bucket || now >= bucket.resetAt) {
+        rlBuckets.set(key, { count: 1, resetAt: now + windowSec * 1000 });
+        return true;
+      }
+      bucket.count += 1;
+      return bucket.count <= max;
     },
 
     async incrementVisits() {

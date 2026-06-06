@@ -79,6 +79,13 @@ export function createRedisStore(): VisitorStore {
       return await redis.zcount(ipKey(ipHash), cutoff, "+inf");
     },
 
+    async rateLimit(key, windowSec, max) {
+      const k = `rl:${key}`;
+      const n = await redis.incr(k);
+      if (n === 1) await redis.expire(k, windowSec); // start the window on first hit
+      return n <= max;
+    },
+
     async incrementVisits() {
       const tx = redis.multi();
       tx.incr("visits:total");

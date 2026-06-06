@@ -83,5 +83,9 @@ export async function GET(req: NextRequest) {
 
   const store = await getVisitorStore();
   const [entries, stats] = await Promise.all([store.list(), store.stats()]);
-  return NextResponse.json({ entries, stats });
+  // Sensitive (full telemetry) - never cache anywhere.
+  return NextResponse.json(
+    { entries, stats },
+    { headers: { "Cache-Control": "no-store" } }
+  );
 }

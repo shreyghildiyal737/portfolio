@@ -17,11 +17,18 @@ export const LIMITS = {
   message: 600,
 } as const;
 
-/** Best-effort client IP from common proxy headers (Vercel sets x-forwarded-for). */
+/**
+ * Best-effort client IP. Prefer x-real-ip: on Vercel it is set by the edge to
+ * the true connecting IP and cannot be spoofed by the client, whereas the
+ * leftmost x-forwarded-for value can be attacker-supplied. Fall back to XFF for
+ * non-Vercel/local environments.
+ */
 export function clientIp(req: NextRequest): string | null {
+  const real = req.headers.get("x-real-ip");
+  if (real) return real.trim();
   const fwd = req.headers.get("x-forwarded-for");
   if (fwd) return fwd.split(",")[0]!.trim();
-  return req.headers.get("x-real-ip");
+  return null;
 }
 
 /** Salted hash of the IP. Returns undefined if no salt configured (privacy-safe default). */

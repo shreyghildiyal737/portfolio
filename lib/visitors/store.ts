@@ -21,6 +21,12 @@ export interface VisitorStore {
   setApproved(id: string, approved: boolean): Promise<boolean>;
   /** Count recent signatures from this ipHash within windowMs (rate limit). */
   countRecentByIp(ipHash: string, windowMs: number): Promise<number>;
+  /**
+   * Generic fixed-window limiter. Returns true if this call is allowed (i.e. the
+   * key has been used fewer than `max` times in the current `windowSec` window),
+   * false once the budget is exhausted. One atomic write per call.
+   */
+  rateLimit(key: string, windowSec: number, max: number): Promise<boolean>;
   /** Increment the anonymous page-visit counters (total + this month). */
   incrementVisits(): Promise<void>;
   /** Aggregate stats for the owner dashboard. */
