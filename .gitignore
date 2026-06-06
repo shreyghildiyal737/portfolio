@@ -32,6 +32,11 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+# ...but keep the example template in the repo
+!.env.local.example
+
+# local visitor store (dev fallback when Upstash env is not set)
+.data
 
 # vercel
 .vercel

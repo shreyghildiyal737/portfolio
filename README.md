@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Shrey Ghildiyal
 
-## Getting Started
+A personal engineering portfolio, built as an honest changelog of work in active
+development rather than a marketing pitch. Warm-paper "inventor's workshop" design.
 
-First, run the development server:
+Next.js 16 (App Router, Turbopack) · React 19 · TypeScript · Tailwind v4 · Framer Motion.
+
+## Screens
+
+- `/` — the log / "currently building"
+- `/projects` and `/projects/[slug]` — the Vault: real projects with per-project blueprints
+- `/timeline` — a changelog of the work and the path so far
+- `/recruiter` — a printable one-page CV view
+- `/assistant` — ask the record (local retrieval, optional Spring Boot backend)
+- `/guestbook` and `/leave-a-mark` — public guestbook + sign form
+- `/owner` — token-gated moderation workbench (noindex)
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. With no environment variables set, everything runs
+locally: the assistant uses built-in retrieval and the guestbook writes to a
+git-ignored `.data/visitors.json` file.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.local.example` to `.env.local` for local development. All variables are
+optional in development — see that file for the full descriptions. Summary:
 
-## Learn More
+| Variable | Purpose | Dev | Prod |
+| --- | --- | --- | --- |
+| `NEXT_PUBLIC_API_BASE_URL` | Spring Boot backend for the assistant | optional | optional |
+| `UPSTASH_REDIS_REST_URL` / `_TOKEN` | Visitor store (Upstash Redis) | optional (file fallback) | **required** |
+| `OWNER_TOKEN` | Unlocks `/owner` + owner API routes | optional | **required** |
+| `VISITOR_IP_SALT` | Salt for hashing visitor IPs (raw IPs never stored) | optional | recommended |
+| `DISCORD_WEBHOOK_URL` | Ping on new guestbook signature | optional | optional |
 
-To learn more about Next.js, take a look at the following resources:
+## Deploying to Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The local file store (`.data/`) does **not** persist on Vercel — serverless
+filesystems are ephemeral. Before going live, set these in the Vercel project
+(Settings → Environment Variables):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` — create a database at
+   https://console.upstash.com/redis. Without these the guestbook silently loses data.
+2. `OWNER_TOKEN` — a long random secret. Without it the `/owner` workbench and the
+   GET/DELETE/PATCH visitor routes are locked (503), never open.
+3. `VISITOR_IP_SALT` — a random string so rate-limiting/dedupe IP hashes are stable.
+4. `DISCORD_WEBHOOK_URL` — optional, for new-signature notifications.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Then deploy from the Vercel dashboard or `vercel --prod`. The production build is
+verified with `npm run build`.
