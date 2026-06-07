@@ -84,10 +84,10 @@ export const timeline: TimelinePhase[] = [
   {
     id: "phase-06",
     phase: "Phase 06",
-    period: "2025 - Present",
+    period: "2026 - Present",
     title: "Building Ventures - In Active Development",
     description:
-      "Building founder-stage products across domains - Leaba Slán (hospital dispatch), FixFlow and SiteScribe (turning messy real-world inputs into clean paperwork for Irish SMEs), CypherLink, and more - several now in an incubation pitch pipeline. Alongside: a live client site, a production-grade full-stack build, and quantitative finance work. Currently going deeper on Go and LangChain.",
+      "Since March 2026, building founder-stage products across domains - Leaba Slán (hospital dispatch), FixFlow and SiteScribe (turning messy real-world inputs into clean paperwork for Irish SMEs), CypherLink, and more - several now in an incubation pitch pipeline. Alongside: a live client site, a production-grade full-stack build, and quantitative finance work. Currently going deeper on Go and LangChain.",
     stack: ["Next.js", "Spring Boot", "NestJS", "PostgreSQL", "Redis", "Claude API", "Groq", "Socket.IO", "Go"],
     metrics: [
       { label: "Status", value: "In active development" },

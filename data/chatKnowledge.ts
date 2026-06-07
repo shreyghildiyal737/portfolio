@@ -476,7 +476,7 @@ export const knowledgeBase: KnowledgeEntry[] = [
         "Jul 2022 - Mar 2023: Software Engineer at OneDirect (Gupshup Group), Bengaluru - Java/Spring, Kafka, RabbitMQ, in production",
         "2023-2024: stepped away deliberately - competitive exams (CAT 2023, UKPCS 2024) and NGO recovery-support work",
         "2025: relocated India → Ireland and began the M.Sc Economics & FinTech at the University of Galway",
-        "2025-present: building and pitching founder-stage ventures, plus a live client site and quant work",
+        "2026-present: building and pitching founder-stage ventures, plus a live client site and quant work",
       ],
     },
     engineer: {
@@ -486,7 +486,7 @@ export const knowledgeBase: KnowledgeEntry[] = [
         "OneDirect: a real production codebase under pressure - Spring Boot microservices, Kafka/RabbitMQ, Jaeger tracing, Grafana - where backend became full-stack",
         "2023-2024 isn't a hole: NGO support work plus CAT and UKPCS preparation sharpened reading real human need and sustained discipline",
         "MSc Economics & FinTech: a second vocabulary for systems - markets, risk, models",
-        "2025-present: founder-stage products across domains, AI integration, and quant work",
+        "2026-present: founder-stage products across domains, AI integration, and quant work",
       ],
       deepDive:
         "The so-called gap is the densest, most human part of the story, not a break in it. The NGO recovery work taught reading what someone actually needs versus what they ask for - the core skill in product - and the exam preparation (CAT, UKPCS) sustained discipline through a deliberate step away from engineering. He came back to building as a choice rather than a default, which is exactly why the current range across health, property, construction, and finance reads as intentional.",

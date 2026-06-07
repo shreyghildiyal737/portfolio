@@ -11,7 +11,7 @@ export const cv = {
       id: "exp-01",
       role: "Independent Engineer & Founder",
       company: "Self-directed · Galway, Ireland",
-      period: "2025 - Present",
+      period: "March 2026 - Present",
       location: "Galway, Ireland",
       highlights: [
         "Building founder-stage products across property, health, construction, and music tech - several now in an incubation pitch pipeline - on Spring Boot, NestJS, and Next.js with real-time and AI integrations",
