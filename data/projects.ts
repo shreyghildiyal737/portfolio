@@ -18,7 +18,7 @@ export const projects: Project[] = [
     description:
       "A product-catalogue and quote-request site built for PC Trade Frames, a uPVC windows and doors business in Ireland. Built to the client's exact requirements and shipped to production - customers browse the range and request quotes; the business stops losing enquiries to scattered phone calls.",
     status: "shipped",
-    year: "2025",
+    year: "2026",
     stack: ["Full-stack web", "Quote workflow", "Email automation"], // TODO: confirm exact framework/db with Shrey
     metrics: [
       { label: "Stage", value: "Live · in production" },
@@ -58,7 +58,7 @@ export const projects: Project[] = [
     description:
       "A full Next.js 16 build of a gaming-venue network and online-casino platform: geospatial venue search, security hardening, a live admin layer, and a real test suite. It is a build/showcase - not a live operator - and full public auth is intentionally left unwired (I won't stand up real accounts for a business without permission). The point is the engineering surface area: this is the most complete production-grade system I've built.",
     status: "shipped",
-    year: "2025",
+    year: "2026",
     stack: ["Next.js 16", "TypeScript", "Tailwind CSS v4", "Supabase", "Upstash Redis", "Cloudflare Turnstile", "Vercel"],
     metrics: [
       { label: "Stage", value: "Deployed build" },
@@ -108,7 +108,7 @@ export const projects: Project[] = [
     description:
       "A system that closes the loop on Ireland's trolley crisis: ambulances routinely arrive at saturated hospitals while a bed sits free eight kilometres away. Leaba Slán gives dispatchers live ward-level bed inventory, acuity-aware reservation tied to inbound ambulance ETAs, and HSE-region diversion controls when a site goes on bypass.",
     status: "in-progress",
-    year: "2025",
+    year: "2026",
     stack: ["Node.js", "TypeScript", "WebSocket", "BullMQ", "PostgreSQL", "Redis", "Twilio", "Mapbox"],
     metrics: [
       { label: "Stage", value: "Pitching · incubation" },
@@ -148,7 +148,7 @@ export const projects: Project[] = [
     description:
       "Repairs in Irish lettings run on chaos - a tenant WhatsApps photos, the agent calls a contractor, approvals lag, and when a deposit or RTB dispute lands the evidence is scattered across chats. FixFlow turns a forwarded WhatsApp message into a tracked job: triaged, assigned, quoted, completed, with a full photo + audit trail. Messy message in → trackable job + evidence out.",
     status: "in-progress",
-    year: "2025",
+    year: "2026",
     stack: ["Spring Boot", "Java", "Next.js", "TypeScript", "PostgreSQL"],
     metrics: [
       { label: "Stage", value: "Pitching · incubation" },
@@ -188,7 +188,7 @@ export const projects: Project[] = [
     description:
       "A lean workflow wrapper for Irish construction teams: a worker records a voice note plus location, AI drafts a clean site report, a manager reviews and approves, and it exports. Not a full construction-management suite - a focused layer that turns messy site inputs into tidy, approvable paperwork.",
     status: "in-progress",
-    year: "2025",
+    year: "2026",
     stack: ["Java 21", "Spring Boot 3", "Next.js", "TypeScript", "Groq Whisper", "Gemini", "PostgreSQL"],
     metrics: [
       { label: "Stage", value: "Pitching · incubation" },
@@ -228,7 +228,7 @@ export const projects: Project[] = [
     description:
       "CypherLink is a platform for independent music culture - a collaborative backend with real-time features, clean auth, and object storage. The backend is built; the product is in the pitch stage.",
     status: "in-progress",
-    year: "2025",
+    year: "2026",
     stack: ["NestJS", "TypeScript", "PostgreSQL", "Prisma", "Redis", "BullMQ", "Socket.IO", "S3"],
     metrics: [
       { label: "Stage", value: "Backend built · pitching" },
@@ -266,7 +266,7 @@ export const projects: Project[] = [
     description:
       "An AI-driven yoga platform organised around a knowledge graph of poses and practice - deeply specified across product, architecture, AI/knowledge-graph, safety, and roadmap, with its own design system. Early build, in the pitch stage.",
     status: "in-progress",
-    year: "2025",
+    year: "2026",
     stack: ["Next.js", "TypeScript", "Knowledge graph", "AI"],
     metrics: [
       { label: "Stage", value: "Specced + early build" },
@@ -304,7 +304,7 @@ export const projects: Project[] = [
     description:
       "Quantitative work from the MSc FinTech track: a finance/analytics engine plus a systematic trading strategy that backtested to a Sharpe ratio of roughly 2.5-2.8 with a maximum drawdown around 5%. The engineering interest is treating financial models the way I treat software - with explicit assumptions and failure modes.",
     status: "in-progress",
-    year: "2025",
+    year: "2026",
     stack: ["Python", "Quantitative analysis"], // TODO: confirm libraries (NumPy/Pandas/etc.) + link repo
     metrics: [
       { label: "Sharpe", value: "≈ 2.5-2.8" },
@@ -340,7 +340,7 @@ export const projects: Project[] = [
     description:
       "A suite of browser tools for print-on-demand / Etsy creators: a mockup visualiser with drag/resize/rotate (Fabric.js), a collage maker, a bulk-mockup generator with ZIP export, and prompt generators. Five tools are functional today; the rest are scaffolded.",
     status: "in-progress",
-    year: "2025",
+    year: "2026",
     stack: ["Next.js", "TypeScript", "Fabric.js", "three.js", "JSZip"],
     metrics: [
       { label: "Stage", value: "Experiment" },
@@ -376,7 +376,7 @@ export const projects: Project[] = [
     description:
       "An Electron desktop app that pulls OBS, Twitch, YouTube, and Kick into one dashboard: mirrored multi-platform chat, chat-spike + keyword moment detection, FFmpeg clip generation, and local AI suggestions/summaries via Ollama. An MVP - Twitch and OBS are real integrations; YouTube and Kick are mocked.",
     status: "in-progress",
-    year: "2025",
+    year: "2026",
     stack: ["Electron", "Node.js", "OBS WebSocket", "FFmpeg", "Ollama", "SQLite"],
     metrics: [
       { label: "Stage", value: "MVP" },
