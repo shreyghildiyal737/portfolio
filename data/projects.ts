@@ -18,7 +18,7 @@ export const projects: Project[] = [
     description:
       "A product-catalogue and quote-request site built for PC Trade Frames, a uPVC windows and doors business in Ireland. Built to the client's exact requirements and shipped to production - customers browse the range and request quotes; the business stops losing enquiries to scattered phone calls.",
     status: "shipped",
-    year: "2024",
+    year: "2025",
     stack: ["Full-stack web", "Quote workflow", "Email automation"], // TODO: confirm exact framework/db with Shrey
     metrics: [
       { label: "Stage", value: "Live · in production" },
@@ -376,7 +376,7 @@ export const projects: Project[] = [
     description:
       "An Electron desktop app that pulls OBS, Twitch, YouTube, and Kick into one dashboard: mirrored multi-platform chat, chat-spike + keyword moment detection, FFmpeg clip generation, and local AI suggestions/summaries via Ollama. An MVP - Twitch and OBS are real integrations; YouTube and Kick are mocked.",
     status: "in-progress",
-    year: "2024",
+    year: "2025",
     stack: ["Electron", "Node.js", "OBS WebSocket", "FFmpeg", "Ollama", "SQLite"],
     metrics: [
       { label: "Stage", value: "MVP" },
