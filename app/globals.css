@@ -137,4 +137,7 @@ body {
 @media print {
   .idw-grid { background-image: none !important; }
   .idw-home { background: #ffffff !important; }
+  /* ATS PDF page setup - standard one-inch-ish margins, plain background */
+  @page { margin: 0.6in; }
+  html, body { background: #ffffff !important; }
 }

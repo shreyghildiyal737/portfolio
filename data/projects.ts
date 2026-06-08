@@ -19,7 +19,7 @@ export const projects: Project[] = [
       "A product-catalogue and quote-request site built for PC Trade Frames, a uPVC windows and doors business in Ireland. Built to the client's exact requirements and shipped to production - customers browse the range and request quotes; the business stops losing enquiries to scattered phone calls.",
     status: "shipped",
     year: "2026",
-    stack: ["Full-stack web", "Quote workflow", "Email automation"], // TODO: confirm exact framework/db with Shrey
+    stack: ["React", "TypeScript", "Tailwind CSS", "FastAPI", "MongoDB", "Resend", "Vercel"],
     metrics: [
       { label: "Stage", value: "Live · in production" },
       { label: "Type", value: "Paying client" },

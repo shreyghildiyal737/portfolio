@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { WorkshopShell } from "@/components/workshop/WorkshopShell";
 import { PrintButton } from "@/components/recruiter/PrintButton";
+import { AtsResume } from "@/components/recruiter/AtsResume";
 import { person } from "@/data/person";
 import { cv } from "@/data/cv";
 import { projects } from "@/data/projects";
@@ -52,7 +53,11 @@ export default function RecruiterPage() {
 
   return (
     <WorkshopShell>
-      <main className="flex-grow max-w-[1200px] mx-auto px-4 md:px-12 py-10 md:py-16 w-full">
+      {/* ATS-friendly resume: hidden on screen, this is what prints / exports to PDF. */}
+      <AtsResume />
+
+      {/* On-screen workshop document - hidden from print so the PDF stays ATS-clean. */}
+      <main className="flex-grow max-w-[1200px] mx-auto px-4 md:px-12 py-10 md:py-16 w-full print:hidden">
         {/* Doc sub-bar */}
         <div className="flex justify-between items-center pb-5 mb-12 border-b" style={{ borderColor: "var(--idw-ink)" }}>
           <span className="idw-mono text-[12px] font-bold uppercase tracking-widest" style={{ color: "var(--idw-ink-2)" }}>
