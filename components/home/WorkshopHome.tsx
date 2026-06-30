@@ -206,6 +206,25 @@ export function WorkshopHome() {
                 </div>
               </a>
             </section>
+
+            {/* Ask my AI Resume - RAG assistant */}
+            <section className="mb-8">
+              <a href="/ask" className="idw-row group block p-6 cursor-crosshair" style={{ border: "1px solid var(--idw-hairline)" }}>
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex flex-col gap-1">
+                    <span className="idw-mono text-[11px] uppercase tracking-[0.15em] flex items-center gap-2" style={{ color: "var(--idw-ember)" }}>
+                      <span>●</span> ask my AI resume
+                    </span>
+                    <span className="idw-mono text-[14px] md:text-[15px]" style={{ color: "var(--idw-ink)" }}>
+                      Evidence-backed answers about my projects &amp; experience
+                    </span>
+                  </div>
+                  <span className="transition-transform group-hover:translate-x-2" style={{ color: "var(--idw-ink-2)" }} aria-hidden="true">
+                    <Ic name="arrow" />
+                  </span>
+                </div>
+              </a>
+            </section>
           </div>
         </div>
       </main>
