@@ -1,3 +1,4 @@
+import "server-only"; // hard guarantee the service-role key never ships to the client
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
 // Server-only Supabase client for the RAG store.

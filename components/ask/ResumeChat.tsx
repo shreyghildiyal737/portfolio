@@ -475,6 +475,7 @@ export function ResumeChat({ sectionCount }: { sectionCount?: number }) {
                 onKeyDown={handleKeyDown}
                 rows={1}
                 maxLength={1000}
+                aria-label="Ask a question about Shrey's resume"
                 placeholder="Ask about Shrey's experience, projects, or skills…"
                 disabled={loading}
                 spellCheck={false}

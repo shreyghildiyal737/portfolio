@@ -19,10 +19,17 @@ const AI_UNAVAILABLE =
 // Vercel WAF handles the hard edge limit on /api).
 const RATE_LIMIT = 20;
 const RATE_WINDOW_MS = 60_000;
+const MAX_TRACKED_IPS = 5_000; // bound the map so it can't grow without limit
 const hits = new Map<string, number[]>();
 
 function rateLimited(ip: string): boolean {
   const now = Date.now();
+  // Opportunistic sweep of stale entries so the map stays bounded.
+  if (hits.size > MAX_TRACKED_IPS) {
+    for (const [key, times] of hits) {
+      if (times.every((t) => now - t >= RATE_WINDOW_MS)) hits.delete(key);
+    }
+  }
   const recent = (hits.get(ip) ?? []).filter((t) => now - t < RATE_WINDOW_MS);
   recent.push(now);
   hits.set(ip, recent);
@@ -53,6 +60,14 @@ function toSources(chunks: RetrievedChunk[]): AnswerSource[] {
 }
 
 export async function POST(request: NextRequest) {
+  // Reject oversized bodies before parsing them into memory. A 1000-char UTF-8
+  // message plus JSON envelope stays well under this; the platform also caps
+  // body size, this is just an early, cheap guard.
+  const declaredLength = Number(request.headers.get("content-length") ?? 0);
+  if (declaredLength > 8_000) {
+    return NextResponse.json({ error: "message_too_long" }, { status: 413 });
+  }
+
   let message: unknown;
   try {
     ({ message } = (await request.json()) as { message?: unknown });
@@ -71,9 +86,26 @@ export async function POST(request: NextRequest) {
   }
 
   const query = message.trim();
-  const retrieval = await retrieveContext(query);
-  const sources = toSources(retrieval.chunks);
   const followUps = suggestedFollowUps(query);
+
+  let retrieval;
+  try {
+    retrieval = await retrieveContext(query);
+  } catch (err) {
+    // retrieveContext already handles vector/keyword fallback internally; this
+    // only trips on an unexpected failure (e.g. the corpus file is missing).
+    console.error("[chat] retrieval failed:", err);
+    const body: ChatResponse = {
+      answer: INSUFFICIENT,
+      sources: [],
+      confidence: "low",
+      followUps,
+      mode: "fallback",
+    };
+    return NextResponse.json(body);
+  }
+
+  const sources = toSources(retrieval.chunks);
 
   // No grounded context at all - refuse rather than improvise.
   if (retrieval.chunks.length === 0) {

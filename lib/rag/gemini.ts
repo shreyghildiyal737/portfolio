@@ -2,8 +2,8 @@
 //
 // We talk to the Generative Language REST API directly with fetch so the
 // project keeps zero AI SDK dependencies. The API key is read from
-// GEMINI_API_KEY and only ever used server-side (this module must never be
-// imported into a client component).
+// GEMINI_API_KEY and only ever used server-side.
+import "server-only"; // hard guarantee this secret-bearing module never ships to the client
 
 const API_BASE = "https://generativelanguage.googleapis.com/v1beta";
 
@@ -13,7 +13,9 @@ const CHAT_MODEL = process.env.GEMINI_CHAT_MODEL ?? "gemini-2.0-flash";
 // Must match the pgvector column dimension in Supabase (vector(768)).
 export const EMBED_DIMENSIONS = 768;
 
-const REQUEST_TIMEOUT_MS = 12_000;
+// Kept under the platform function budget so our own graceful fallback fires
+// before the host kills the request.
+const REQUEST_TIMEOUT_MS = 9_000;
 
 export function isGeminiConfigured(): boolean {
   return Boolean(process.env.GEMINI_API_KEY);
@@ -28,7 +30,8 @@ function apiKey(): string {
 async function postJson(url: string, body: unknown): Promise<unknown> {
   const res = await fetch(url, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    // Key travels in a header, not the URL query, to keep it out of request logs.
+    headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey() },
     body: JSON.stringify(body),
     signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
   });
@@ -52,7 +55,7 @@ export async function generateEmbedding(
   text: string,
   task: EmbeddingTask = "RETRIEVAL_QUERY"
 ): Promise<number[]> {
-  const url = `${API_BASE}/models/${EMBED_MODEL}:embedContent?key=${apiKey()}`;
+  const url = `${API_BASE}/models/${EMBED_MODEL}:embedContent`;
   const data = (await postJson(url, {
     model: `models/${EMBED_MODEL}`,
     content: { parts: [{ text }] },
@@ -61,8 +64,12 @@ export async function generateEmbedding(
   })) as { embedding?: { values?: number[] } };
 
   const values = data.embedding?.values;
-  if (!values || values.length === 0) {
-    throw new Error("Gemini returned an empty embedding");
+  // Enforce the exact dimension so a model/API change fails loudly here rather
+  // than silently at pgvector insert/query time.
+  if (!values || values.length !== EMBED_DIMENSIONS) {
+    throw new Error(
+      `Gemini returned ${values?.length ?? 0} embedding dims, expected ${EMBED_DIMENSIONS}`
+    );
   }
   return normalize(values);
 }
@@ -72,7 +79,7 @@ export async function generateAnswer(
   systemPrompt: string,
   userPrompt: string
 ): Promise<string> {
-  const url = `${API_BASE}/models/${CHAT_MODEL}:generateContent?key=${apiKey()}`;
+  const url = `${API_BASE}/models/${CHAT_MODEL}:generateContent`;
   const data = (await postJson(url, {
     systemInstruction: { parts: [{ text: systemPrompt }] },
     contents: [{ role: "user", parts: [{ text: userPrompt }] }],

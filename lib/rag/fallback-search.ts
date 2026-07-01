@@ -1,3 +1,4 @@
+import "server-only"; // reads the corpus from disk - server only
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { chunkMarkdown } from "./chunk";
