@@ -1,5 +1,7 @@
 import type { RetrievedChunk } from "./types";
 
+// System prompt, intent classification, and prompt assembly for the assistant.
+
 export const SYSTEM_PROMPT = `You are Shrey Ghildiyal's AI Resume Assistant. You answer recruiter and engineer questions about Shrey using ONLY the resume context provided to you.
 
 Rules:

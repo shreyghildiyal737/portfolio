@@ -3,7 +3,7 @@
 // We talk to the Generative Language REST API directly with fetch so the
 // project keeps zero AI SDK dependencies. The API key is read from
 // GEMINI_API_KEY and only ever used server-side.
-import "server-only"; // hard guarantee this secret-bearing module never ships to the client
+import "server-only"; // server-only: keeps the API key out of any client bundle
 
 const API_BASE = "https://generativelanguage.googleapis.com/v1beta";
 

@@ -3,6 +3,9 @@ import { getSupabase, isSupabaseConfigured } from "./supabase";
 import { fallbackSearch } from "./fallback-search";
 import type { Confidence, RetrievalResult, RetrievedChunk } from "./types";
 
+// Vector search (Gemini embedding + Supabase pgvector) with a keyword fallback
+// when either service is unconfigured, errors, or returns nothing.
+
 const MATCH_COUNT = 6;
 const MATCH_THRESHOLD = 0.2;
 
