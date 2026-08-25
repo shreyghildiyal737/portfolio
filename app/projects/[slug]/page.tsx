@@ -24,7 +24,7 @@ export async function generateMetadata({
 // Per-slug dossier metadata (mirrors the Vault legend) - domain label + status chip.
 const META: Record<string, { domain: string; status: string }> = {
   "pc-trade-frames": { domain: "PROPERTY", status: "Live" },
-  "coastline-gaming": { domain: "GAMING", status: "Deployed build" },
+  "strandline-gaming": { domain: "GAMING", status: "Deployed build" },
   "leaba-shlan": { domain: "HEALTH-TECH", status: "Pitching" },
   fixflow: { domain: "PROPERTY", status: "Pitching" },
   sitescribe: { domain: "CONSTRUCTION", status: "Pitching" },

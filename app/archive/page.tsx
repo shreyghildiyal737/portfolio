@@ -83,7 +83,7 @@ export default function ArchivePage() {
           {/* ── DECISIONS ── */}
           <Entry label="DECISION.NOTES" title="PostgreSQL is the source of truth">
             <p>
-              The pattern that repeats across Leaba Slán, Coastline Gaming, and CypherLink: PostgreSQL holds
+              The pattern that repeats across Leaba Slán, Strandline Gaming, and CypherLink: PostgreSQL holds
               the authoritative state, Redis is strictly cache and pub/sub, and anything slow goes onto a queue.
               One durable store to reason about under failure, not three.
             </p>
@@ -116,9 +116,9 @@ export default function ArchivePage() {
             </Note>
           </Entry>
 
-          <Entry label="DECISION.NOTES" title="Why Coastline&apos;s public auth is left unwired">
+          <Entry label="DECISION.NOTES" title="Why Strandline&apos;s public auth is left unwired">
             <p>
-              Coastline Gaming is a production-grade build, not a live operator - so public sign-up is intentionally
+              Strandline Gaming is a production-grade build, not a live operator - so public sign-up is intentionally
               not wired. I won&apos;t stand up real player accounts for a business without permission. The admin surface
               still sits behind a real session + role check; it&apos;s the public account system that&apos;s deliberately absent.
             </p>

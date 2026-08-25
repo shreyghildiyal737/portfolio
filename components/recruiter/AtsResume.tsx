@@ -40,7 +40,7 @@ const EXPERIENCE: Role[] = [
     bullets: [
       "Designed and shipped full-stack products across property, health, construction, and music tech on Spring Boot, NestJS, and Next.js, with several advancing into an incubator pitch pipeline.",
       "Delivered a live client website (PC Trade Frames) on React, FastAPI, and MongoDB, replacing scattered phone enquiries with an automated quote-request and email workflow.",
-      "Engineered a production-grade gaming-venue platform (Coastline Gaming) with geospatial nearest-venue search, rate limiting, async job queues, and security hardening, validated by a full Jest and Playwright test suite.",
+      "Engineered a production-grade gaming-venue platform (Strandline Gaming) with geospatial nearest-venue search, rate limiting, async job queues, and security hardening, validated by a full Jest and Playwright test suite.",
       "Built a quantitative finance engine and systematic trading strategy backtested to a Sharpe ratio of ~2.5-2.8 at ~5% maximum drawdown.",
     ],
   },
@@ -77,7 +77,7 @@ const PROJECTS: Project[] = [
     tech: "React, TypeScript, Tailwind CSS, FastAPI, MongoDB, Vercel",
   },
   {
-    name: "Coastline Gaming",
+    name: "Strandline Gaming",
     year: "2026",
     blurb:
       "Production-grade gaming-venue platform with geospatial search, rate limiting, async job queues, and full automated test coverage.",

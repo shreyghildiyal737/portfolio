@@ -30,7 +30,7 @@ type Mode = "recruiter" | "engineer";
 const PROMPT_CHIPS = [
   "Why should we hire Shrey?",
   "What are you building now?",
-  "Tell me about Coastline Gaming.",
+  "Tell me about Strandline Gaming.",
   "Why the career gap?",
 ];
 

@@ -20,7 +20,7 @@ Tags: recruiter-summary, elevator-pitch, hire, fit
 Source: Resume
 
 Content:
-In 30 seconds: Shrey is a full-stack engineer who learned backend under real production pressure at OneDirect (Gupshup Group) in India, working on Java/Spring Boot microservices with Kafka and RabbitMQ. He now builds and ships products end to end. He has a live client site in production (PC Trade Frames) and a deployed production-grade build (Coastline Gaming) with geospatial search, security hardening, async job processing, and a full Jest plus Playwright test suite. Alongside an M.Sc in Economics and Financial Technology at the University of Galway, he is pitching several ventures to an incubation centre. He is reliable, honest about status, and comfortable owning a problem from architecture to deployment.
+In 30 seconds: Shrey is a full-stack engineer who learned backend under real production pressure at OneDirect (Gupshup Group) in India, working on Java/Spring Boot microservices with Kafka and RabbitMQ. He now builds and ships products end to end. He has a live client site in production (PC Trade Frames) and a deployed production-grade build (Strandline Gaming) with geospatial search, security hardening, async job processing, and a full Jest plus Playwright test suite. Alongside an M.Sc in Economics and Financial Technology at the University of Galway, he is pitching several ventures to an incubation centre. He is reliable, honest about status, and comfortable owning a problem from architecture to deployment.
 
 ## Work Experience - OneDirect (Gupshup Group)
 
@@ -38,7 +38,7 @@ Tags: founder, full-stack, ventures, spring-boot, nestjs, nextjs, ai, real-time,
 Source: Resume
 
 Content:
-Since March 2026, Shrey has worked as an Independent Engineer and Founder, self-directed in Galway, Ireland. He is building founder-stage products across property, health, construction, and music tech, several now in an incubation pitch pipeline, on Spring Boot, NestJS, and Next.js with real-time and AI integrations. In this period he shipped a live client site (PC Trade Frames) and a production-grade full-stack build (Coastline Gaming) with geospatial search, security hardening, async job processing, and a full Jest plus Playwright test suite. He also did quantitative work alongside the MSc: a finance engine and a systematic strategy backtested to a Sharpe ratio of about 2.5 to 2.8 at roughly 5 percent maximum drawdown.
+Since March 2026, Shrey has worked as an Independent Engineer and Founder, self-directed in Galway, Ireland. He is building founder-stage products across property, health, construction, and music tech, several now in an incubation pitch pipeline, on Spring Boot, NestJS, and Next.js with real-time and AI integrations. In this period he shipped a live client site (PC Trade Frames) and a production-grade full-stack build (Strandline Gaming) with geospatial search, security hardening, async job processing, and a full Jest plus Playwright test suite. He also did quantitative work alongside the MSc: a finance engine and a systematic strategy backtested to a Sharpe ratio of about 2.5 to 2.8 at roughly 5 percent maximum drawdown.
 
 ## Experience - NGO Recovery and Support Work
 
@@ -121,14 +121,14 @@ Source: Portfolio
 Content:
 PC Trade Frames is real client work in production: a product-catalogue and quote-request site for an Irish uPVC windows and doors business, built to the client's exact brief and live at pctradeframes.ie. Customers browse the windows and doors range and submit a structured quote request online, so the business stops losing enquiries to scattered phone calls. The stack is React, TypeScript, and Tailwind on the frontend, with a FastAPI (Python) backend, MongoDB, Resend for email automation, and Vercel hosting. It is not the prettiest build; it is the right one for what a paying client actually needed. This is the un-glamorous proof that Shrey can ship for someone who is paying and relying on it.
 
-## Project - Coastline Gaming
+## Project - Strandline Gaming
 
 Type: Project
 Tags: production-grade, nextjs, supabase, redis, turnstile, geospatial, security, testing, deployed
 Source: Portfolio
 
 Content:
-Coastline Gaming is the most complete build in Shrey's vault: a deployed Next.js 16 build of a gaming-venue network and online-casino platform. It exercises the full production surface: a geospatial nearest-venue search via a Postgres function on Supabase, security hardening (Cloudflare Turnstile, a heuristic spam scorer, Upstash Redis rate limiting in edge middleware, an admin behind a secret path plus Supabase session and role check), async work through a job_queue table drained by a Vercel cron, feature flags with a short Redis cache, and a real test suite in Jest and Playwright. It is explicitly a build and showcase, not a live operator: full public auth is intentionally left unwired because Shrey will not stand up real accounts for a business without permission. That restraint is the point, not a gap.
+Strandline Gaming is the most complete build in Shrey's vault: a deployed Next.js 16 build of a gaming-venue network and online-casino platform. It exercises the full production surface: a geospatial nearest-venue search via a Postgres function on Supabase, security hardening (Cloudflare Turnstile, a heuristic spam scorer, Upstash Redis rate limiting in edge middleware, an admin behind a secret path plus Supabase session and role check), async work through a job_queue table drained by a Vercel cron, feature flags with a short Redis cache, and a real test suite in Jest and Playwright. It is explicitly a build and showcase, not a live operator: full public auth is intentionally left unwired because Shrey will not stand up real accounts for a business without permission. That restraint is the point, not a gap.
 
 ## Project - Leaba Slan
 
@@ -227,7 +227,7 @@ Tags: job-fit, full-stack, founding-engineer, ai-systems, ownership, recruiter
 Source: Synthesis
 
 Content:
-Is Shrey suitable for a full-stack role? Yes, and the evidence is concrete. He has production backend experience (Java/Spring Boot microservices, Kafka, RabbitMQ at OneDirect) and ships full-stack products end to end: PC Trade Frames (React plus FastAPI, live for a paying client) and Coastline Gaming (Next.js 16 with geospatial search, security, async jobs, and a Jest plus Playwright test suite). He owns architecture through deployment with no handoff latency, works across Java, TypeScript/Node/NestJS, and Python, and integrates AI pragmatically. He is well suited to full-stack, founding-engineer, AI-systems, and backend-leaning roles, especially in early-stage teams where ownership and honest status reporting matter. For a junior or mid software-engineering role he is comfortably qualified; his backend depth and breadth point above entry level.
+Is Shrey suitable for a full-stack role? Yes, and the evidence is concrete. He has production backend experience (Java/Spring Boot microservices, Kafka, RabbitMQ at OneDirect) and ships full-stack products end to end: PC Trade Frames (React plus FastAPI, live for a paying client) and Strandline Gaming (Next.js 16 with geospatial search, security, async jobs, and a Jest plus Playwright test suite). He owns architecture through deployment with no handoff latency, works across Java, TypeScript/Node/NestJS, and Python, and integrates AI pragmatically. He is well suited to full-stack, founding-engineer, AI-systems, and backend-leaning roles, especially in early-stage teams where ownership and honest status reporting matter. For a junior or mid software-engineering role he is comfortably qualified; his backend depth and breadth point above entry level.
 
 ## Evidence - Java and Spring Boot
 

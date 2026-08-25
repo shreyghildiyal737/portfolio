@@ -13,7 +13,7 @@ export const SITE_LINKS = {
 export const PROJECT_REPO_LINKS: Record<string, string> = {
   creatoros:            "https://github.com/shreyghildiyal737", // TODO: actual repo
   portfolio:            "https://github.com/shreyghildiyal737", // TODO: actual repo
-  "coastline-gaming":   "https://coastline-gaming.vercel.app/",
+  "strandline-gaming":  "https://strandline-gaming.vercel.app/",
   cypherlink:           "https://github.com/shreyghildiyal737/cypherlink",
   "pc-trade-frames":    "https://pctradeframes.ie",
   "ai-resume-system":   "https://github.com/shreyghildiyal737", // TODO: actual repo

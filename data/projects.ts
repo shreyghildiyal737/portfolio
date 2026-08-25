@@ -50,13 +50,13 @@ export const projects: Project[] = [
       "Took a real client from brief to a live production website - the genuine, un-glamorous proof that I can ship for someone who is paying and depending on it.",
   },
   {
-    id: "coastline-gaming",
-    slug: "coastline-gaming",
-    title: "Coastline Gaming",
+    id: "strandline-gaming",
+    slug: "strandline-gaming",
+    title: "Strandline Gaming",
     systemId: "VAULT.02",
     tagline: "A production-grade build of a gaming-venue + online-casino platform - deployed, the most complete system in the vault.",
     description:
-      "A full Next.js 16 build of a gaming-venue network and online-casino platform: geospatial venue search, security hardening, a live admin layer, and a real test suite. It is a build/showcase - not a live operator - and full public auth is intentionally left unwired (I won't stand up real accounts for a business without permission). The point is the engineering surface area: this is the most complete production-grade system I've built.",
+      "A full Next.js 16 build of a gaming-venue network and online-casino platform: geospatial venue search, security hardening, a live admin layer, and a real test suite. Strandline is a fictional operator invented for the build - a showcase, not a live service - and full public auth is intentionally left unwired. The point is the engineering surface area: this is the most complete production-grade system I've built.",
     status: "shipped",
     year: "2026",
     stack: ["Next.js 16", "TypeScript", "Tailwind CSS v4", "Supabase", "Upstash Redis", "Cloudflare Turnstile", "Vercel"],
@@ -66,7 +66,7 @@ export const projects: Project[] = [
     ],
     philosophy:
       "A casino site is a useful forcing function: geospatial search, bot defence, rate limiting, feature flags, async jobs, and a real test suite - all the things a serious production app actually needs.",
-    links: [{ label: "View deployment", href: "https://coastline-gaming.vercel.app/" }],
+    links: [{ label: "View deployment", href: "https://strandline-gaming.vercel.app/" }],
     tags: ["Production-grade", "Full-stack", "Security"],
     problem:
       "I wanted one project that exercised the full production surface - not a toy demo, but the security, geospatial, async-work, and testing concerns a real consumer app carries.",

@@ -63,7 +63,7 @@ const FOLLOW_UPS: Record<Intent, string[]> = {
     "What is his most complete production build?",
   ],
   project_evidence: [
-    "Tell me about Coastline Gaming.",
+    "Tell me about Strandline Gaming.",
     "What AI projects has Shrey built?",
     "What backend experience does Shrey have?",
   ],
