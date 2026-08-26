@@ -31,7 +31,6 @@ const META: Record<string, { domain: string; category: string; status: string }>
   sitescribe: { domain: "construction", category: "ventures", status: "Pitching" },
   cypherlink: { domain: "music", category: "ventures", status: "Backend built" },
   "temple-yoga": { domain: "wellness", category: "ventures", status: "Specced" },
-  "finance-analytics": { domain: "finance", category: "experiments", status: "Research" },
   "cf-satellite": { domain: "creator", category: "experiments", status: "Experiment" },
   creatoros: { domain: "creator", category: "experiments", status: "MVP" },
 };

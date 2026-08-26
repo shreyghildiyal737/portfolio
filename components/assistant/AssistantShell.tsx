@@ -39,7 +39,7 @@ const TOPICS: { label: string; query: string }[] = [
   { label: "Building now", query: "What are you building now?" },
   { label: "Backend & real-time", query: "Show backend and real-time work." },
   { label: "AI integration", query: "Show AI workflow examples." },
-  { label: "FinTech & quant", query: "Tell me about the quant finance work." },
+  { label: "FinTech", query: "How does the MSc in FinTech feed into his engineering?" },
   { label: "Architecture", query: "How do you architect systems?" },
   { label: "The timeline", query: "Walk me through the timeline and the gap." },
 ];

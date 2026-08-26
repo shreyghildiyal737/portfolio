@@ -30,7 +30,6 @@ const META: Record<string, { domain: string; status: string }> = {
   sitescribe: { domain: "CONSTRUCTION", status: "Pitching" },
   cypherlink: { domain: "MUSIC", status: "Backend built" },
   "temple-yoga": { domain: "WELLNESS", status: "Specced" },
-  "finance-analytics": { domain: "FINANCE", status: "Research" },
   "cf-satellite": { domain: "CREATOR", status: "Experiment" },
   creatoros: { domain: "CREATOR", status: "MVP" },
 };

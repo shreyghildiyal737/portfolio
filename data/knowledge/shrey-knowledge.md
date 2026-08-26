@@ -38,7 +38,7 @@ Tags: founder, full-stack, ventures, spring-boot, nestjs, nextjs, ai, real-time,
 Source: Resume
 
 Content:
-Since March 2026, Shrey has worked as an Independent Engineer and Founder, self-directed in Galway, Ireland. He is building founder-stage products across property, health, construction, and music tech, several now in an incubation pitch pipeline, on Spring Boot, NestJS, and Next.js with real-time and AI integrations. In this period he shipped a live client site (PC Trade Frames) and a production-grade full-stack build (Strandline Gaming) with geospatial search, security hardening, async job processing, and a full Jest plus Playwright test suite. He also did quantitative work alongside the MSc: a finance engine and a systematic strategy backtested to a Sharpe ratio of about 2.5 to 2.8 at roughly 5 percent maximum drawdown.
+Since March 2026, Shrey has worked as an Independent Engineer and Founder, self-directed in Galway, Ireland. He is building founder-stage products across property, health, construction, and music tech, several now in an incubation pitch pipeline, on Spring Boot, NestJS, and Next.js with real-time and AI integrations. In this period he shipped a live client site (PC Trade Frames) and a production-grade full-stack build (Strandline Gaming) with geospatial search, security hardening, async job processing, and a full Jest plus Playwright test suite. Alongside the MSc he also modelled SettleTrust, a cross-border trade-settlement platform, as a twenty-state invoice lifecycle with a role-by-action permission matrix, writing the domain and authorisation rules before the interface.
 
 ## Experience - NGO Recovery and Support Work
 
@@ -56,7 +56,7 @@ Tags: fintech, economics, university-of-galway, masters, ireland, current
 Source: Resume
 
 Content:
-Shrey is studying for an M.Sc in Economics and Financial Technology at the University of Galway (NUI Galway), Ireland, from 2025 to present. He relocated from India to Ireland in 2025 to pursue it. The programme gives him a second vocabulary for systems: markets, risk, and financial models. It feeds directly into his quantitative work, including a systematic trading strategy backtested to a Sharpe ratio of about 2.5 to 2.8 at roughly 5 percent maximum drawdown.
+Shrey is studying for an M.Sc in Economics and Financial Technology at the University of Galway (NUI Galway), Ireland, from 2025 to present. He relocated from India to Ireland in 2025 to pursue it. The programme gives him a second vocabulary for systems: markets, risk, and financial models. It gives him a critical lens - assumptions, risk, and failure modes - that transfers directly to how he reads software systems.
 
 ## Education - B.E. Computer Science
 
@@ -175,15 +175,6 @@ Source: Portfolio
 Content:
 Temple Yoga is an AI-driven yoga platform organised around a knowledge graph of poses, sequences, contraindications, and progressions, so the platform reasons about practice rather than just listing videos. An AI layer over the graph generates and adapts practices, with safety and contraindication rules encoded as first-class data. It is deeply specified across product, architecture, AI and knowledge graph, safety and media rights, testing, and roadmap, with its own design system. It is an early build in the pitch stage, and is the clearest example of Shrey speccing the hard parts (safety, media rights, knowledge representation) before writing the easy screens.
 
-## Project - Quant Finance Engine
-
-Type: Project
-Tags: finance, quant, python, backtesting, sharpe, risk, msc-fintech, experiment
-Source: Portfolio
-
-Content:
-The Quant Finance Engine is quantitative work from Shrey's M.Sc FinTech track: a finance and analytics engine plus a systematic trading strategy that backtested to a Sharpe ratio of roughly 2.5 to 2.8 with a maximum drawdown around 5 percent (real, user-supplied metrics). It is built in Python. The engineering interest is treating financial models the way he treats software, with explicit assumptions and failure modes: a high Sharpe means little without knowing where the model breaks. It bridges the MSc Economics and FinTech coursework with hands-on implementation. (The exact libraries and repository are still being confirmed and are represented that way rather than embellished.)
-
 ## Project - CF Satellite Suite
 
 Type: Project
@@ -218,7 +209,7 @@ Tags: career, history, journey, gap, india, ireland, onedirect, ngo, msc
 Source: Resume
 
 Content:
-The arc is deliberate, India to Ireland. 2018 to 2022: B.E. Computer Science, Chandigarh University, India (CGPA 7.32). July 2022 to March 2023: Software Engineer at OneDirect (Gupshup Group), Bengaluru, working on Java/Spring, Kafka, and RabbitMQ in production, where backend became full-stack. 2023 to 2024: a deliberate step away for competitive exams (CAT 2023, UKPCS 2024) and NGO recovery-support work, not a hole in the story but the densest, most human part of it. 2025: relocated from India to Ireland and began the M.Sc Economics and Financial Technology at the University of Galway. 2026 to present: building and pitching founder-stage ventures, plus a live client site and quant work. Each phase produced the capabilities the next one needed, so the breadth is structural, not accidental.
+The arc is deliberate, India to Ireland. 2018 to 2022: B.E. Computer Science, Chandigarh University, India (CGPA 7.32). July 2022 to March 2023: Software Engineer at OneDirect (Gupshup Group), Bengaluru, working on Java/Spring, Kafka, and RabbitMQ in production, where backend became full-stack. 2023 to 2024: a deliberate step away for competitive exams (CAT 2023, UKPCS 2024) and NGO recovery-support work, not a hole in the story but the densest, most human part of it. 2025: relocated from India to Ireland and began the M.Sc Economics and Financial Technology at the University of Galway. 2026 to present: building and pitching founder-stage ventures, plus a live client site and a production-grade full-stack build. Each phase produced the capabilities the next one needed, so the breadth is structural, not accidental.
 
 ## Full-Stack and Role Fit
 

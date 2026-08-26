@@ -236,7 +236,7 @@ export const projects: Project[] = [
     ],
     philosophy:
       "Get the boring foundations right - strict typing, refresh-token auth, queues, and storage - so the collaborative features have something solid to stand on.",
-    links: [],
+    links: [{ label: "View source", href: "https://github.com/shreyghildiyal737/cypherlink" }],
     tags: ["Music-tech", "Real-time", "Venture"],
     problem:
       "Independent music scenes coordinate across scattered tools; CypherLink is an attempt at a single collaborative home for them.",
@@ -296,46 +296,10 @@ export const projects: Project[] = [
 
   // ─── EXPERIMENTS ────────────────────────────────────────────────────────────
   {
-    id: "finance-analytics",
-    slug: "finance-analytics",
-    title: "Quant Finance Engine",
-    systemId: "VAULT.08",
-    tagline: "A finance engine and a backtested trading strategy - Sharpe ≈ 2.5-2.8 at ~5% max drawdown.",
-    description:
-      "Quantitative work from the MSc FinTech track: a finance/analytics engine plus a systematic trading strategy that backtested to a Sharpe ratio of roughly 2.5-2.8 with a maximum drawdown around 5%. The engineering interest is treating financial models the way I treat software - with explicit assumptions and failure modes.",
-    status: "in-progress",
-    year: "2026",
-    stack: ["Python", "Quantitative analysis"], // TODO: confirm libraries (NumPy/Pandas/etc.) + link repo
-    metrics: [
-      { label: "Sharpe", value: "≈ 2.5-2.8" },
-      { label: "Max drawdown", value: "~5%" },
-    ],
-    philosophy:
-      "A high Sharpe means nothing without knowing where the model breaks. The discipline is the same as software: understand the failure modes before trusting the output.",
-    links: [],
-    tags: ["Finance", "Quant", "Experiment"],
-    architectureLayers: [
-      {
-        name: "Data & signals",
-        detail: "A Python pipeline ingests market data and computes the indicators and signals the strategy trades on.",
-      },
-      {
-        name: "Strategy & backtest",
-        detail: "The strategy is expressed as explicit rules and run through a backtester that reports risk-adjusted performance - roughly a 2.5 to 2.8 Sharpe at about 5% max drawdown.",
-      },
-      {
-        name: "Risk discipline",
-        detail: "Every model carries explicit assumptions and failure modes; the engine is built to surface where the strategy breaks, not just its headline return.",
-      },
-    ],
-    capabilityProof:
-      "Built a quantitative finance engine and a systematic strategy that backtested to a Sharpe of ~2.5-2.8 at ~5% max drawdown - bridging the MSc Economics & FinTech work with hands-on implementation.",
-  },
-  {
     id: "cf-satellite",
     slug: "cf-satellite",
     title: "CF Satellite Suite",
-    systemId: "VAULT.09",
+    systemId: "VAULT.08",
     tagline: "A toolkit for print-on-demand creators - mockups, collages, bulk exports.",
     description:
       "A suite of browser tools for print-on-demand / Etsy creators: a mockup visualiser with drag/resize/rotate (Fabric.js), a collage maker, a bulk-mockup generator with ZIP export, and prompt generators. Five tools are functional today; the rest are scaffolded.",
@@ -371,7 +335,7 @@ export const projects: Project[] = [
     id: "creatoros",
     slug: "creatoros",
     title: "CreatorOS",
-    systemId: "VAULT.10",
+    systemId: "VAULT.09",
     tagline: "A desktop command centre for live streamers - unified chat, AI clip detection, local-first.",
     description:
       "An Electron desktop app that pulls OBS, Twitch, YouTube, and Kick into one dashboard: mirrored multi-platform chat, chat-spike + keyword moment detection, FFmpeg clip generation, and local AI suggestions/summaries via Ollama. An MVP - Twitch and OBS are real integrations; YouTube and Kick are mocked.",

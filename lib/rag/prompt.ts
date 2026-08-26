@@ -69,7 +69,7 @@ const FOLLOW_UPS: Record<Intent, string[]> = {
   ],
   education: [
     "What is Shrey's FinTech background?",
-    "What quantitative work has he done?",
+    "How does his FinTech study feed into his engineering?",
     "Summarize Shrey for a recruiter.",
   ],
   experience: [
