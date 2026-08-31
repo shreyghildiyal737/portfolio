@@ -229,7 +229,7 @@ export const projects: Project[] = [
       "CypherLink is a platform for independent music culture - a collaborative backend with real-time features, clean auth, and object storage. The backend is built; the product is in the pitch stage.",
     status: "in-progress",
     year: "2026",
-    stack: ["NestJS", "TypeScript", "PostgreSQL", "Prisma", "Redis", "BullMQ", "Socket.IO", "S3"],
+    stack: ["NestJS", "TypeScript", "PostgreSQL", "Prisma", "Socket.IO", "S3", "OpenAPI"],
     metrics: [
       { label: "Stage", value: "Backend built · pitching" },
       { label: "Real-time", value: "Socket.IO" },
@@ -247,7 +247,7 @@ export const projects: Project[] = [
       },
       {
         name: "Data & queues",
-        detail: "PostgreSQL via Prisma is the source of truth; Redis with BullMQ runs background jobs off the request path.",
+        detail: "PostgreSQL via Prisma is the source of truth - a wide domain model covering projects, members, invites, milestones, rights tags and moderation. Scheduled sweeps run on @nestjs/schedule cron: asset expiry, cypher state transitions and project lifecycle rolls.",
       },
       {
         name: "Real-time & storage",
@@ -255,7 +255,7 @@ export const projects: Project[] = [
       },
     ],
     capabilityProof:
-      "Architected a NestJS backend with PostgreSQL/Prisma, Redis + BullMQ queues, Socket.IO real-time, JWT + HTTP-only refresh-cookie auth, and S3-compatible storage - documented with OpenAPI.",
+      "Architected a NestJS backend across 25 modules with PostgreSQL/Prisma, Socket.IO real-time, JWT with HTTP-only refresh-cookie rotation, presigned S3-compatible uploads, helmet and rate limiting - documented with OpenAPI.",
   },
   {
     id: "temple-yoga",
