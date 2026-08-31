@@ -8,8 +8,8 @@
 // The COPY here is resume-tuned (strong action verbs, achievement-first,
 // results where honest) and lives LOCALLY in this component on purpose - the
 // on-screen recruiter page keeps its narrative voice from data/cv.ts. Only the
-// PDF changes. No invented metrics: the only numbers are real (Sharpe ~2.5-2.8,
-// ~5% drawdown, CGPA 7.32).
+// PDF changes. No invented metrics: every number here traces to something
+// verifiable (CGPA 7.32, the twenty-state SettleTrust lifecycle, IELTS 8.0).
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { person } from "@/data/person";
@@ -21,7 +21,7 @@ const PORTFOLIO = "shrey-ghildiyal-resume.vercel.app";
 const PHONE = "+353 89 207 1390";
 
 const SUMMARY =
-  "Full-stack software engineer with Java and Spring Boot backend roots and production experience across React, Next.js, and Node.js. Proven delivery of live client products and production-grade systems spanning real-time services, applied AI, geospatial search, and security hardening. Currently building founder-stage ventures in Ireland while completing an M.Sc in Economics & Financial Technology, with quantitative finance work backtested to a Sharpe ratio of ~2.5-2.8.";
+  "Full-stack software engineer with Java and Spring Boot backend roots and production experience across React, Next.js, and Node.js. Proven delivery of live client products and production-grade systems spanning real-time services, applied AI, geospatial search, and security hardening. Currently building founder-stage ventures in Ireland while completing an M.Sc in Economics & Financial Technology.";
 
 type Role = {
   title: string;
@@ -40,8 +40,8 @@ const EXPERIENCE: Role[] = [
     bullets: [
       "Designed and shipped full-stack products across property, health, construction, and music tech on Spring Boot, NestJS, and Next.js, with several advancing into an incubator pitch pipeline.",
       "Delivered a live client website (PC Trade Frames) on React, FastAPI, and MongoDB, replacing scattered phone enquiries with an automated quote-request and email workflow.",
-      "Engineered a production-grade gaming-venue platform (Coastline Gaming) with geospatial nearest-venue search, rate limiting, async job queues, and security hardening, validated by a full Jest and Playwright test suite.",
-      "Built a quantitative finance engine and systematic trading strategy backtested to a Sharpe ratio of ~2.5-2.8 at ~5% maximum drawdown.",
+      "Engineered a production-grade gaming-venue platform (Strandline Gaming) with geospatial nearest-venue search, rate limiting, async job queues, and security hardening, validated by a full Jest and Playwright test suite.",
+      "Modelled SettleTrust, a cross-border trade-settlement platform, as a twenty-state invoice lifecycle with an explicit legal-transition table and a four-role, sixteen-action permission matrix.",
     ],
   },
   {
@@ -77,7 +77,7 @@ const PROJECTS: Project[] = [
     tech: "React, TypeScript, Tailwind CSS, FastAPI, MongoDB, Vercel",
   },
   {
-    name: "Coastline Gaming",
+    name: "Strandline Gaming",
     year: "2026",
     blurb:
       "Production-grade gaming-venue platform with geospatial search, rate limiting, async job queues, and full automated test coverage.",

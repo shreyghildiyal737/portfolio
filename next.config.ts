@@ -33,6 +33,12 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // The /api/chat keyword fallback reads the knowledge corpus from disk at
+  // runtime. Vercel's function tracing won't pick up a path built from
+  // process.cwd(), so include it explicitly or the fallback 500s in production.
+  outputFileTracingIncludes: {
+    "/api/chat": ["./data/knowledge/**/*"],
+  },
   async headers() {
     return [
       {

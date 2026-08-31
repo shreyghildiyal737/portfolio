@@ -25,13 +25,12 @@ const DOMAIN_COLOR = Object.fromEntries(DOMAINS.map((d) => [d.key, d.color]));
 
 const META: Record<string, { domain: string; category: string; status: string }> = {
   "pc-trade-frames": { domain: "property", category: "shipped", status: "Live" },
-  "coastline-gaming": { domain: "gaming", category: "shipped", status: "Deployed build" },
+  "strandline-gaming": { domain: "gaming", category: "shipped", status: "Deployed build" },
   "leaba-shlan": { domain: "health", category: "ventures", status: "Pitching" },
   fixflow: { domain: "property", category: "ventures", status: "Pitching" },
   sitescribe: { domain: "construction", category: "ventures", status: "Pitching" },
   cypherlink: { domain: "music", category: "ventures", status: "Backend built" },
   "temple-yoga": { domain: "wellness", category: "ventures", status: "Specced" },
-  "finance-analytics": { domain: "finance", category: "experiments", status: "Research" },
   "cf-satellite": { domain: "creator", category: "experiments", status: "Experiment" },
   creatoros: { domain: "creator", category: "experiments", status: "MVP" },
 };

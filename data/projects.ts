@@ -50,13 +50,13 @@ export const projects: Project[] = [
       "Took a real client from brief to a live production website - the genuine, un-glamorous proof that I can ship for someone who is paying and depending on it.",
   },
   {
-    id: "coastline-gaming",
-    slug: "coastline-gaming",
-    title: "Coastline Gaming",
+    id: "strandline-gaming",
+    slug: "strandline-gaming",
+    title: "Strandline Gaming",
     systemId: "VAULT.02",
     tagline: "A production-grade build of a gaming-venue + online-casino platform - deployed, the most complete system in the vault.",
     description:
-      "A full Next.js 16 build of a gaming-venue network and online-casino platform: geospatial venue search, security hardening, a live admin layer, and a real test suite. It is a build/showcase - not a live operator - and full public auth is intentionally left unwired (I won't stand up real accounts for a business without permission). The point is the engineering surface area: this is the most complete production-grade system I've built.",
+      "A full Next.js 16 build of a gaming-venue network and online-casino platform: geospatial venue search, security hardening, a live admin layer, and a real test suite. Strandline is a fictional operator invented for the build - a showcase, not a live service - and full public auth is intentionally left unwired. The point is the engineering surface area: this is the most complete production-grade system I've built.",
     status: "shipped",
     year: "2026",
     stack: ["Next.js 16", "TypeScript", "Tailwind CSS v4", "Supabase", "Upstash Redis", "Cloudflare Turnstile", "Vercel"],
@@ -66,7 +66,7 @@ export const projects: Project[] = [
     ],
     philosophy:
       "A casino site is a useful forcing function: geospatial search, bot defence, rate limiting, feature flags, async jobs, and a real test suite - all the things a serious production app actually needs.",
-    links: [{ label: "View deployment", href: "https://coastline-gaming.vercel.app/" }],
+    links: [{ label: "View deployment", href: "https://strandline-gaming.vercel.app/" }],
     tags: ["Production-grade", "Full-stack", "Security"],
     problem:
       "I wanted one project that exercised the full production surface - not a toy demo, but the security, geospatial, async-work, and testing concerns a real consumer app carries.",
@@ -229,14 +229,14 @@ export const projects: Project[] = [
       "CypherLink is a platform for independent music culture - a collaborative backend with real-time features, clean auth, and object storage. The backend is built; the product is in the pitch stage.",
     status: "in-progress",
     year: "2026",
-    stack: ["NestJS", "TypeScript", "PostgreSQL", "Prisma", "Redis", "BullMQ", "Socket.IO", "S3"],
+    stack: ["NestJS", "TypeScript", "PostgreSQL", "Prisma", "Socket.IO", "S3", "OpenAPI"],
     metrics: [
       { label: "Stage", value: "Backend built · pitching" },
       { label: "Real-time", value: "Socket.IO" },
     ],
     philosophy:
       "Get the boring foundations right - strict typing, refresh-token auth, queues, and storage - so the collaborative features have something solid to stand on.",
-    links: [],
+    links: [{ label: "View source", href: "https://github.com/shreyghildiyal737/cypherlink" }],
     tags: ["Music-tech", "Real-time", "Venture"],
     problem:
       "Independent music scenes coordinate across scattered tools; CypherLink is an attempt at a single collaborative home for them.",
@@ -247,7 +247,7 @@ export const projects: Project[] = [
       },
       {
         name: "Data & queues",
-        detail: "PostgreSQL via Prisma is the source of truth; Redis with BullMQ runs background jobs off the request path.",
+        detail: "PostgreSQL via Prisma is the source of truth - a wide domain model covering projects, members, invites, milestones, rights tags and moderation. Scheduled sweeps run on @nestjs/schedule cron: asset expiry, cypher state transitions and project lifecycle rolls.",
       },
       {
         name: "Real-time & storage",
@@ -255,7 +255,7 @@ export const projects: Project[] = [
       },
     ],
     capabilityProof:
-      "Architected a NestJS backend with PostgreSQL/Prisma, Redis + BullMQ queues, Socket.IO real-time, JWT + HTTP-only refresh-cookie auth, and S3-compatible storage - documented with OpenAPI.",
+      "Architected a NestJS backend across 25 modules with PostgreSQL/Prisma, Socket.IO real-time, JWT with HTTP-only refresh-cookie rotation, presigned S3-compatible uploads, helmet and rate limiting - documented with OpenAPI.",
   },
   {
     id: "temple-yoga",
@@ -296,46 +296,10 @@ export const projects: Project[] = [
 
   // ─── EXPERIMENTS ────────────────────────────────────────────────────────────
   {
-    id: "finance-analytics",
-    slug: "finance-analytics",
-    title: "Quant Finance Engine",
-    systemId: "VAULT.08",
-    tagline: "A finance engine and a backtested trading strategy - Sharpe ≈ 2.5-2.8 at ~5% max drawdown.",
-    description:
-      "Quantitative work from the MSc FinTech track: a finance/analytics engine plus a systematic trading strategy that backtested to a Sharpe ratio of roughly 2.5-2.8 with a maximum drawdown around 5%. The engineering interest is treating financial models the way I treat software - with explicit assumptions and failure modes.",
-    status: "in-progress",
-    year: "2026",
-    stack: ["Python", "Quantitative analysis"], // TODO: confirm libraries (NumPy/Pandas/etc.) + link repo
-    metrics: [
-      { label: "Sharpe", value: "≈ 2.5-2.8" },
-      { label: "Max drawdown", value: "~5%" },
-    ],
-    philosophy:
-      "A high Sharpe means nothing without knowing where the model breaks. The discipline is the same as software: understand the failure modes before trusting the output.",
-    links: [],
-    tags: ["Finance", "Quant", "Experiment"],
-    architectureLayers: [
-      {
-        name: "Data & signals",
-        detail: "A Python pipeline ingests market data and computes the indicators and signals the strategy trades on.",
-      },
-      {
-        name: "Strategy & backtest",
-        detail: "The strategy is expressed as explicit rules and run through a backtester that reports risk-adjusted performance - roughly a 2.5 to 2.8 Sharpe at about 5% max drawdown.",
-      },
-      {
-        name: "Risk discipline",
-        detail: "Every model carries explicit assumptions and failure modes; the engine is built to surface where the strategy breaks, not just its headline return.",
-      },
-    ],
-    capabilityProof:
-      "Built a quantitative finance engine and a systematic strategy that backtested to a Sharpe of ~2.5-2.8 at ~5% max drawdown - bridging the MSc Economics & FinTech work with hands-on implementation.",
-  },
-  {
     id: "cf-satellite",
     slug: "cf-satellite",
     title: "CF Satellite Suite",
-    systemId: "VAULT.09",
+    systemId: "VAULT.08",
     tagline: "A toolkit for print-on-demand creators - mockups, collages, bulk exports.",
     description:
       "A suite of browser tools for print-on-demand / Etsy creators: a mockup visualiser with drag/resize/rotate (Fabric.js), a collage maker, a bulk-mockup generator with ZIP export, and prompt generators. Five tools are functional today; the rest are scaffolded.",
@@ -371,7 +335,7 @@ export const projects: Project[] = [
     id: "creatoros",
     slug: "creatoros",
     title: "CreatorOS",
-    systemId: "VAULT.10",
+    systemId: "VAULT.09",
     tagline: "A desktop command centre for live streamers - unified chat, AI clip detection, local-first.",
     description:
       "An Electron desktop app that pulls OBS, Twitch, YouTube, and Kick into one dashboard: mirrored multi-platform chat, chat-spike + keyword moment detection, FFmpeg clip generation, and local AI suggestions/summaries via Ollama. An MVP - Twitch and OBS are real integrations; YouTube and Kick are mocked.",

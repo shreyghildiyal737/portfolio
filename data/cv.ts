@@ -15,8 +15,8 @@ export const cv = {
       location: "Galway, Ireland",
       highlights: [
         "Building founder-stage products across property, health, construction, and music tech - several now in an incubation pitch pipeline - on Spring Boot, NestJS, and Next.js with real-time and AI integrations",
-        "Shipped a live client site (PC Trade Frames) and a production-grade full-stack build (Coastline Gaming) with geospatial search, security hardening, async job processing, and a full Jest + Playwright test suite",
-        "Quantitative work alongside the MSc: a finance engine and a systematic strategy backtested to a Sharpe ratio of ~2.5-2.8 at ~5% maximum drawdown",
+        "Shipped a live client site (PC Trade Frames) and a production-grade full-stack build (Strandline Gaming) with geospatial search, security hardening, async job processing, and a full Jest + Playwright test suite",
+        "Modelled SettleTrust, a cross-border trade-settlement platform, as a twenty-state invoice lifecycle with a role-by-action permission matrix - domain and authorisation rules written before the interface",
       ],
     },
     {

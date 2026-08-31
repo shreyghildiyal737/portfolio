@@ -2,7 +2,7 @@
 // The assistant's brain - rewritten from the REAL projects and corrected facts,
 // June 2026. Honest only: no invented metrics, no removed slugs, no "First Class"
 // (it's B.E. CS, Chandigarh, CGPA 7.32), no public mention of the on-hold 2nd
-// client, and no "2-day Coastline" speed claim. Every entry is grounded in
+// client, and no "2-day Strandline" speed claim. Every entry is grounded in
 // data/projects.ts, data/cv.ts, and data/timeline.ts.
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -34,7 +34,7 @@ export const knowledgeBase: KnowledgeEntry[] = [
       bullets: [
         "Full-stack with a Java/Spring backend foundation built under real production pressure at OneDirect (Gupshup Group)",
         "Range across health, property, construction, music, gaming, and creator tooling - each project paired with a business model, not just a demo",
-        "A live client site in production (PC Trade Frames) and a deployed production-grade build (Coastline Gaming) with geospatial search, security hardening, and a real test suite",
+        "A live client site in production (PC Trade Frames) and a deployed production-grade build (Strandline Gaming) with geospatial search, security hardening, and a real test suite",
         "Currently pitching multiple ventures to an incubation centre while finishing an M.Sc Economics & FinTech at the University of Galway",
         "Open to full-stack, AI-systems, and founding-engineer roles - based in Galway, Ireland, with roots in India",
       ],
@@ -44,14 +44,13 @@ export const knowledgeBase: KnowledgeEntry[] = [
       bullets: [
         "Event-driven backends with queues and real-time fan-out (WebSocket/Socket.IO, BullMQ, Redis pub/sub) across several systems",
         "Pragmatic AI integration: a pluggable mock-vs-live adapter seam (SiteScribe) and local-first inference via Ollama (CreatorOS) - not buzzword AI",
-        "Security and correctness as defaults: Turnstile + rate limiting + a secret-path admin in Coastline; BCrypt + JWT and per-company isolation in SiteScribe",
-        "Quantitative discipline from the MSc: a systematic strategy backtested to Sharpe ≈ 2.5-2.8 at ~5% max drawdown",
+        "Security and correctness as defaults: Turnstile + rate limiting + a secret-path admin in Strandline; BCrypt + JWT and per-company isolation in SiteScribe",
         "Breadth with depth - Java/Spring, TypeScript/Node/NestJS, Python - from UI to backend to AI pipeline",
       ],
       deepDive:
-        "The recurring pattern is choosing the option that keeps the operational model simple for a small team. PostgreSQL as the source of truth with Redis for cache and pub/sub; BullMQ workers to push slow work off the request path; an explicit AI-adapter interface so a product can run end-to-end with no paid APIs before going live. He's also deliberate about honesty in the work itself - Coastline's public auth is intentionally left unwired because he won't stand up real accounts for a business without permission, and that constraint is stated rather than hidden.",
+        "The recurring pattern is choosing the option that keeps the operational model simple for a small team. PostgreSQL as the source of truth with Redis for cache and pub/sub; BullMQ workers to push slow work off the request path; an explicit AI-adapter interface so a product can run end-to-end with no paid APIs before going live. He's also deliberate about honesty in the work itself - Strandline's public auth is intentionally left unwired because he won't stand up real accounts for a business without permission, and that constraint is stated rather than hidden.",
     },
-    relatedProjects: ["coastline-gaming", "leaba-shlan", "sitescribe"],
+    relatedProjects: ["strandline-gaming", "leaba-shlan", "sitescribe"],
     context: { type: "profile" },
   },
   {
@@ -90,7 +89,7 @@ export const knowledgeBase: KnowledgeEntry[] = [
       bullets: [
         "Leaba Slán: a REST + WebSocket gateway pushing live bed and routing events to hospital, dispatcher, and crew clients",
         "CypherLink: a NestJS backend with Prisma, Redis/BullMQ queues, and Socket.IO real-time, documented with OpenAPI",
-        "Coastline Gaming: a Postgres geospatial function, an async job queue drained by cron, and feature flags with a short Redis cache",
+        "Strandline Gaming: a Postgres geospatial function, an async job queue drained by cron, and feature flags with a short Redis cache",
         "Java/Spring foundation from OneDirect: production microservices with Kafka and RabbitMQ event processing",
         "PostgreSQL as the backbone; Redis for cache and pub/sub fan-out - not as a primary store",
       ],
@@ -100,15 +99,15 @@ export const knowledgeBase: KnowledgeEntry[] = [
       bullets: [
         "WebSocket/Socket.IO gateways for live fan-out so clients are event-driven, not polling (Leaba, CypherLink)",
         "BullMQ workers handle outbound sync, alerting, and email off the request path - keeping request latency low",
-        "Coastline: a job_queue table drained by a Vercel cron handles notifications and GDPR acknowledgements asynchronously",
+        "Strandline: a job_queue table drained by a Vercel cron handles notifications and GDPR acknowledgements asynchronously",
         "Geospatial 'nearest venue' via a Postgres function granted to anon/authenticated roles - real spatial querying, not a hardcoded list",
         "OneDirect production exposure: Kafka/RabbitMQ events, plus Jaeger tracing and Grafana dashboards for observability",
       ],
       deepDive:
-        "The architecture choice that repeats is keeping the data model boring and pushing complexity into queues rather than into the request path. Leaba's BullMQ workers own HSE sync and alerting so the live dispatcher view stays responsive; Coastline's cron-drained job_queue keeps form submissions fast while email and GDPR work happen behind it. PostgreSQL stays the single source of truth in every case, with Redis strictly as cache and pub/sub - one fewer system to reason about under failure.",
+        "The architecture choice that repeats is keeping the data model boring and pushing complexity into queues rather than into the request path. Leaba's BullMQ workers own HSE sync and alerting so the live dispatcher view stays responsive; Strandline's cron-drained job_queue keeps form submissions fast while email and GDPR work happen behind it. PostgreSQL stays the single source of truth in every case, with Redis strictly as cache and pub/sub - one fewer system to reason about under failure.",
     },
-    relatedProjects: ["leaba-shlan", "cypherlink", "coastline-gaming"],
-    context: { type: "projects", projectSlugs: ["leaba-shlan", "cypherlink", "coastline-gaming"] },
+    relatedProjects: ["leaba-shlan", "cypherlink", "strandline-gaming"],
+    context: { type: "projects", projectSlugs: ["leaba-shlan", "cypherlink", "strandline-gaming"] },
   },
   {
     id: "ai-workflows",
@@ -139,8 +138,8 @@ export const knowledgeBase: KnowledgeEntry[] = [
     context: { type: "projects", projectSlugs: ["sitescribe", "creatoros"] },
   },
   {
-    id: "coastline",
-    triggers: ["coastline", "gaming", "casino", "venue", "geospatial", "turnstile"],
+    id: "strandline",
+    triggers: ["strandline", "gaming", "casino", "venue", "geospatial", "turnstile"],
     recruiter: {
       lede: "The most complete build in the vault: a deployed gaming-venue + online-casino platform exercising the full production surface - explicitly a build/showcase, not a live operator.",
       bullets: [
@@ -161,10 +160,10 @@ export const knowledgeBase: KnowledgeEntry[] = [
         "Jest + Playwright runnable against local or production",
       ],
       deepDive:
-        "Coastline is best read as a forcing function: pick one project that exercises everything a serious consumer app needs - spatial queries, bot defence, rate limiting, async work, feature flagging, and a real test pyramid - and build it to production standard. The deliberate omission is public auth: it's left unwired on purpose because standing up real player accounts for a business isn't something to do without authorization. That restraint is the point, not a gap.",
+        "Strandline is best read as a forcing function: pick one project that exercises everything a serious consumer app needs - spatial queries, bot defence, rate limiting, async work, feature flagging, and a real test pyramid - and build it to production standard. The deliberate omission is public auth: it's left unwired on purpose because standing up real player accounts for a business isn't something to do without authorization. That restraint is the point, not a gap.",
     },
-    relatedProjects: ["coastline-gaming"],
-    context: { type: "architecture", architectureSlug: "coastline-gaming" },
+    relatedProjects: ["strandline-gaming"],
+    context: { type: "architecture", architectureSlug: "strandline-gaming" },
   },
   {
     id: "leaba",
@@ -333,41 +332,12 @@ export const knowledgeBase: KnowledgeEntry[] = [
     context: { type: "projects", projectSlugs: ["pc-trade-frames"] },
   },
   {
-    id: "quant",
-    triggers: ["quant", "finance engine", "sharpe", "trading", "strategy", "backtest", "drawdown", "systematic", "quantitative"],
-    recruiter: {
-      lede: "Quantitative work from the MSc FinTech track: a finance engine plus a systematic trading strategy backtested to Sharpe ≈ 2.5-2.8 at ~5% maximum drawdown.",
-      bullets: [
-        "Real, defensible numbers - Sharpe roughly 2.5-2.8 with a maximum drawdown around 5%",
-        "A finance/analytics engine paired with a systematic strategy",
-        "Bridges the M.Sc Economics & FinTech coursework with hands-on implementation in Python",
-        "The interest is treating financial models like software - explicit assumptions and failure modes",
-        "Part of the FinTech depth alongside the Wharton FinTech and data-analytics certifications",
-      ],
-    },
-    engineer: {
-      lede: "A Python finance engine and a backtested systematic strategy, approached with the same epistemic discipline as software.",
-      bullets: [
-        "Systematic strategy backtested to Sharpe ≈ 2.5-2.8, max drawdown ~5%",
-        "A high Sharpe means little without knowing where the model breaks - failure modes first",
-        "Python-based quantitative analysis (specific libraries to be confirmed rather than guessed)",
-        "Grounded in MSc Economics & FinTech study at the University of Galway",
-        "The same 'understand the assumptions before trusting the output' habit that runs through the engineering work",
-      ],
-      deepDive:
-        "The throughline he draws explicitly: a financial model is an engineered artifact with assumptions and failure modes, exactly like a software system. So the strategy work isn't just chasing a Sharpe number - it's about knowing the conditions under which that number stops being meaningful. (Repo and exact library stack are still to be confirmed, and are represented that way rather than embellished.)",
-    },
-    relatedProjects: ["finance-analytics"],
-    context: { type: "projects", projectSlugs: ["finance-analytics"] },
-  },
-  {
     id: "fintech",
     triggers: ["fintech", "finance", "financial", "economics", "msc", "masters", "galway", "markets", "risk"],
     recruiter: {
-      lede: "FinTech is a second vocabulary, not a side interest: an M.Sc Economics & Financial Technology at the University of Galway, alongside hands-on quant work.",
+      lede: "FinTech is a second vocabulary, not a side interest: an M.Sc Economics & Financial Technology at the University of Galway, read as a lens on systems rather than a credential.",
       bullets: [
         "M.Sc Economics & Financial Technology, University of Galway - 2025 to present",
-        "Quantitative strategy backtested to Sharpe ≈ 2.5-2.8 at ~5% max drawdown",
         "FinTech foundations certification from Wharton (Coursera), plus IBM and Google data-analytics certs",
         "Markets, risk, and financial models as a critical lens that transfers directly to software",
         "Relocated India → Ireland in 2025 to pursue it",
@@ -377,14 +347,13 @@ export const knowledgeBase: KnowledgeEntry[] = [
       lede: "Financial modelling treated as systems work: know where the model breaks before you trust it.",
       bullets: [
         "MSc Economics & FinTech coursework feeding directly into implementation",
-        "A systematic strategy with real risk metrics (Sharpe ≈ 2.5-2.8, ~5% drawdown)",
         "The critical lens - assumptions, failure modes, edge cases - is shared between finance and software",
         "FinTech foundations (Wharton) and data analytics (IBM, Google) certifications underpin it",
-        "Python for the quantitative side; full-stack everywhere else",
+        "Markets and risk as a critical lens on software; full-stack engineering everywhere else",
       ],
     },
-    relatedProjects: ["finance-analytics"],
-    context: { type: "projects", projectSlugs: ["finance-analytics"] },
+    relatedProjects: [],
+    context: { type: "profile" },
   },
   {
     id: "startup-fit",
@@ -406,11 +375,11 @@ export const knowledgeBase: KnowledgeEntry[] = [
         "Pushes slow work to queues and keeps Postgres authoritative - a simple operational model",
         "Designs the AI integration so a product runs end-to-end before any paid API is enabled",
         "States what's built versus scoped (Leaba Phase 1; CreatorOS YouTube/Kick mocked) instead of overclaiming",
-        "Won't cut a corner that creates risk - e.g. leaving Coastline's public auth unwired by choice",
+        "Won't cut a corner that creates risk - e.g. leaving Strandline's public auth unwired by choice",
       ],
     },
-    relatedProjects: ["fixflow", "sitescribe", "coastline-gaming"],
-    context: { type: "projects", projectSlugs: ["fixflow", "sitescribe", "coastline-gaming"] },
+    relatedProjects: ["fixflow", "sitescribe", "strandline-gaming"],
+    context: { type: "projects", projectSlugs: ["fixflow", "sitescribe", "strandline-gaming"] },
   },
   {
     id: "architecture",
@@ -422,7 +391,7 @@ export const knowledgeBase: KnowledgeEntry[] = [
         "Platform primitives over custom infrastructure when they keep the team moving",
         "AI behind a swappable interface so the workflow is testable without spend",
         "Designs for the real scale and the real status, not a hypothetical one",
-        "States constraints openly - the unwired Coastline auth is a documented decision, not an oversight",
+        "States constraints openly - the unwired Strandline auth is a documented decision, not an oversight",
       ],
     },
     engineer: {
@@ -431,13 +400,13 @@ export const knowledgeBase: KnowledgeEntry[] = [
         "Queues (BullMQ) over doing slow work inline - request paths stay fast, failures are retryable",
         "WebSocket/Socket.IO fan-out over polling for anything real-time (Leaba, CypherLink)",
         "A mock-vs-live AI seam so the model is a dependency, not a hard requirement, during development",
-        "Feature flags (Coastline) to toggle heavy modules without a redeploy",
+        "Feature flags (Strandline) to toggle heavy modules without a redeploy",
         "Edge middleware for rate limiting and bot defence close to the request",
       ],
       deepDive:
         "The common principle across the systems is preferring the choice with the lowest long-term cognitive overhead for a team of one to five. That looks like keeping PostgreSQL authoritative everywhere, using Redis only as cache and pub/sub, pushing anything slow into BullMQ, and putting AI behind an interface so it can be mocked. Each decision accepts a small, known cost now to avoid a larger operational cost later.",
     },
-    relatedProjects: ["leaba-shlan", "coastline-gaming", "sitescribe"],
+    relatedProjects: ["leaba-shlan", "strandline-gaming", "sitescribe"],
     context: { type: "architecture", architectureSlug: "leaba-shlan" },
   },
   {
@@ -476,7 +445,7 @@ export const knowledgeBase: KnowledgeEntry[] = [
         "Jul 2022 - Mar 2023: Software Engineer at OneDirect (Gupshup Group), Bengaluru - Java/Spring, Kafka, RabbitMQ, in production",
         "2023-2024: stepped away deliberately - competitive exams (CAT 2023, UKPCS 2024) and NGO recovery-support work",
         "2025: relocated India → Ireland and began the M.Sc Economics & FinTech at the University of Galway",
-        "2026-present: building and pitching founder-stage ventures, plus a live client site and quant work",
+        "2026-present: building and pitching founder-stage ventures, plus a live client site",
       ],
     },
     engineer: {
@@ -486,7 +455,7 @@ export const knowledgeBase: KnowledgeEntry[] = [
         "OneDirect: a real production codebase under pressure - Spring Boot microservices, Kafka/RabbitMQ, Jaeger tracing, Grafana - where backend became full-stack",
         "2023-2024 isn't a hole: NGO support work plus CAT and UKPCS preparation sharpened reading real human need and sustained discipline",
         "MSc Economics & FinTech: a second vocabulary for systems - markets, risk, models",
-        "2026-present: founder-stage products across domains, AI integration, and quant work",
+        "2026-present: founder-stage products across domains, with applied AI integration throughout",
       ],
       deepDive:
         "The so-called gap is the densest, most human part of the story, not a break in it. The NGO recovery work taught reading what someone actually needs versus what they ask for - the core skill in product - and the exam preparation (CAT, UKPCS) sustained discipline through a deliberate step away from engineering. He came back to building as a choice rather than a default, which is exactly why the current range across health, property, construction, and finance reads as intentional.",
@@ -504,7 +473,7 @@ const fallbackEntry: KnowledgeEntry = {
     bullets: [
       "Try: 'Why should we hire Shrey?' for the founder-engineer overview",
       "Try: 'What are you building now?' for the active ventures",
-      "Try: 'Tell me about Coastline Gaming.' for the most complete build",
+      "Try: 'Tell me about Strandline Gaming.' for the most complete build",
       "Try: 'Explain Leaba Slán.' for the hardest systems problem",
       "Try: 'Why the career gap?' for the honest arc",
     ],
@@ -512,8 +481,8 @@ const fallbackEntry: KnowledgeEntry = {
   engineer: {
     lede: "This assistant retrieves from a curated record of real work - ask something more specific to surface the relevant depth.",
     bullets: [
-      "Project deep-dives: Coastline Gaming, Leaba Slán, FixFlow, SiteScribe, CypherLink, CreatorOS, PC Trade Frames",
-      "Domain deep-dives: backend & real-time systems, practical AI integration, FinTech & quant",
+      "Project deep-dives: Strandline Gaming, Leaba Slán, FixFlow, SiteScribe, CypherLink, CreatorOS, PC Trade Frames",
+      "Domain deep-dives: backend & real-time systems, practical AI integration, FinTech",
       "Process questions: architecture tradeoffs, product thinking, startup execution",
       "Background: the India → Ireland timeline and how the phases connect",
     ],

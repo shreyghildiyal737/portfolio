@@ -83,7 +83,7 @@ export default function ArchivePage() {
           {/* ── DECISIONS ── */}
           <Entry label="DECISION.NOTES" title="PostgreSQL is the source of truth">
             <p>
-              The pattern that repeats across Leaba Slán, Coastline Gaming, and CypherLink: PostgreSQL holds
+              The pattern that repeats across Leaba Slán, Strandline Gaming, and CypherLink: PostgreSQL holds
               the authoritative state, Redis is strictly cache and pub/sub, and anything slow goes onto a queue.
               One durable store to reason about under failure, not three.
             </p>
@@ -116,9 +116,9 @@ export default function ArchivePage() {
             </Note>
           </Entry>
 
-          <Entry label="DECISION.NOTES" title="Why Coastline&apos;s public auth is left unwired">
+          <Entry label="DECISION.NOTES" title="Why Strandline&apos;s public auth is left unwired">
             <p>
-              Coastline Gaming is a production-grade build, not a live operator - so public sign-up is intentionally
+              Strandline Gaming is a production-grade build, not a live operator - so public sign-up is intentionally
               not wired. I won&apos;t stand up real player accounts for a business without permission. The admin surface
               still sits behind a real session + role check; it&apos;s the public account system that&apos;s deliberately absent.
             </p>
@@ -170,21 +170,9 @@ export default function ArchivePage() {
             </p>
           </div>
 
-          <Entry label="EXPERIMENT.01" title="Quantitative portfolio tool">
+          <Entry label="EXPERIMENT.01" title="Finishing the CF Satellite suite">
             <p>
-              An extension of the Quant Finance Engine (VAULT.08): take the systematic strategy that backtested to a
-              Sharpe of roughly 2.5-2.8 at ~5% drawdown and move it toward live portfolios - market data, rebalancing
-              suggestions from mean-variance optimisation, user-defined risk tolerance.
-            </p>
-            <Note>
-              Status: the models work on historical data; the live-data and broker integration is the gap, and the
-              constraint there is regulatory more than technical.
-            </Note>
-          </Entry>
-
-          <Entry label="EXPERIMENT.02" title="Finishing the CF Satellite suite">
-            <p>
-              CF Satellite (VAULT.09) is a toolkit for print-on-demand creators - five of sixteen planned tools are
+              CF Satellite (VAULT.08) is a toolkit for print-on-demand creators - five of sixteen planned tools are
               functional today (the Fabric.js mockup editor, collage maker, bulk-ZIP export, and a couple of
               generators); the rest are scaffolded.
             </p>
@@ -193,7 +181,7 @@ export default function ArchivePage() {
             </Note>
           </Entry>
 
-          <Entry label="EXPERIMENT.03" title="Going deeper on Go and agentic AI">
+          <Entry label="EXPERIMENT.02" title="Going deeper on Go and agentic AI">
             <p>
               Currently learning Go and LangChain, with an interest in multi-agent setups where the disagreement
               between agents is the signal - flagging where a decision isn&apos;t obvious rather than merging outputs into
