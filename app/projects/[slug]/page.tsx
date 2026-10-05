@@ -85,7 +85,7 @@ export default async function ProjectDetailPage({
                   className="idw-mono text-[11px] font-bold uppercase tracking-[0.16em] mb-4"
                   style={{ color: "var(--idw-outline)" }}
                 >
-                  {sec} [{project.systemId}] // {meta.domain} // {meta.status}
+                  {sec} [{project.systemId}] {"//"} {meta.domain} {"//"} {meta.status}
                 </p>
                 <div
                   className="md:border-l md:pl-4 space-y-6"

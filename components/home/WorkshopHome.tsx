@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { WorkshopShell } from "@/components/workshop/WorkshopShell";
 
 /**
@@ -180,7 +181,7 @@ export function WorkshopHome() {
                   <div key={pos} className={`absolute w-2.5 h-2.5 ${pos}`} style={{ borderColor: "var(--idw-ink)" }} />
                 ))}
                 <p className="idw-mono text-[11px] uppercase tracking-[0.18em] mb-6" style={{ color: "var(--idw-ink-2)" }}>
-                  // core operating principle
+                  {"// core operating principle"}
                 </p>
                 <h2 className="idw-display max-w-3xl" style={{ fontSize: "clamp(1.6rem, 3.4vw, 2.5rem)", lineHeight: 1.18, fontWeight: 600 }}>
                   &ldquo;I see a buildable product in every corner of the world, and I ship them.&rdquo;
@@ -190,7 +191,7 @@ export function WorkshopHome() {
 
             {/* Teaser */}
             <section className="mb-8">
-              <a href="/projects" className="idw-cta group block p-6 cursor-crosshair" style={{ border: "1px solid var(--idw-ink)" }}>
+              <Link href="/projects" className="idw-cta group block p-6 cursor-crosshair" style={{ border: "1px solid var(--idw-ink)" }}>
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex items-center gap-6">
                     <span className="idw-mono text-[15px] md:text-[17px]">10 systems across 8 domains</span>
@@ -204,12 +205,12 @@ export function WorkshopHome() {
                     <Ic name="arrow" />
                   </span>
                 </div>
-              </a>
+              </Link>
             </section>
 
             {/* Ask my AI Resume - RAG assistant */}
             <section className="mb-8">
-              <a href="/ask" className="idw-row group block p-6 cursor-crosshair" style={{ border: "1px solid var(--idw-hairline)" }}>
+              <Link href="/ask" className="idw-row group block p-6 cursor-crosshair" style={{ border: "1px solid var(--idw-hairline)" }}>
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex flex-col gap-1">
                     <span className="idw-mono text-[11px] uppercase tracking-[0.15em] flex items-center gap-2" style={{ color: "var(--idw-ember)" }}>
@@ -223,7 +224,7 @@ export function WorkshopHome() {
                     <Ic name="arrow" />
                   </span>
                 </div>
-              </a>
+              </Link>
             </section>
           </div>
         </div>
