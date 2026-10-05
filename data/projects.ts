@@ -294,12 +294,70 @@ export const projects: Project[] = [
       "Produced a full product + engineering specification (vision, architecture, AI/knowledge-graph, safety/media-rights, testing, roadmap) and a design system for an AI wellness platform.",
   },
 
+  // ─── OPEN SOURCE - the code is public ──────────────────────────────────────
+  {
+    id: "settletrust-ledger",
+    slug: "settletrust-ledger",
+    title: "SettleTrust Ledger",
+    systemId: "VAULT.08",
+    tagline: "The double-entry ledger that moves the money for a trade-settlement platform.",
+    description:
+      "The backend half of SettleTrust, whose invoice lifecycle is a twenty-state machine. A Java 21 double-entry ledger on PostgreSQL: append-only entries, idempotent transfers, settlement that writes the invoice transition and the money movement in one transaction, and a reconciler that checks the books in both directions. The source is public; a hosted demo is not up yet.",
+    status: "in-progress",
+    year: "2026",
+    stack: ["Java 21", "Spring Boot", "PostgreSQL", "jOOQ", "Flyway", "JUnit", "Spock", "Solidity", "Docker"],
+    metrics: [
+      { label: "Tests", value: "261" },
+      { label: "Invoice states", value: "20" },
+      { label: "Source", value: "Public" },
+    ],
+    philosophy:
+      "Money is never created or destroyed by this system, it only moves. Every movement is a balanced pair of entries that sum to zero, and the database refuses to rewrite history.",
+    links: [{ label: "View source", href: "https://github.com/shreyghildiyal737/settletrust-ledger" }],
+    tags: ["Fintech", "Backend", "Open source"],
+    problem:
+      "A settlement platform has to be able to say whose money is where, and why, at every step. A stored balance or status can quietly disagree with the history that produced it; this ledger derives both from an append-only log so there is nothing to disagree.",
+    architectureLayers: [
+      {
+        name: "Ledger core",
+        detail: "Amounts are long minor units with the currency carried alongside, never floating point. Balances are projections summed from entries, not columns, and a correction is a reversing pair rather than an update.",
+      },
+      {
+        name: "PostgreSQL",
+        detail: "Idempotency is a unique constraint, so two racing retries pay once. Spending takes a row lock on the paying account. Triggers reject every update and delete on entries and transfers. jOOQ classes are generated from the Flyway migration itself.",
+      },
+      {
+        name: "Invoice lifecycle and settlement",
+        detail: "Twenty states, ported from the SettleTrust frontend, with the service as the authority. Status is the latest transition, not a column. Funding escrow and settling are the only states that cannot be asserted: they write the transition and the transfer in one transaction, into a per-invoice escrow account.",
+      },
+      {
+        name: "Chain rail and reconciliation",
+        detail: "A Solidity escrow contract and a read-only watcher that credits deposits after confirmations and reverses them with new entries on a reorganisation. The reconciler runs every check against one snapshot and asks the token contract what the escrow really holds.",
+      },
+    ],
+    tradeoffs: [
+      {
+        decision: "No chain library in the service",
+        reason: "The watcher reads and never signs, so the whole chain dependency is four JSON-RPC calls. A component that can only read cannot be made to move money by a bug.",
+      },
+      {
+        decision: "Reconcile from a transaction-visibility watermark, not an id or timestamp",
+        reason: "Transactions do not commit in the order they started, so an id-based mark can silently skip a row. Marking at pg_snapshot_xmin means a long transaction makes a run do less work rather than miss work.",
+      },
+    ],
+    lessons: [
+      "The contract's own tests found that a fee-on-transfer token let a deposit record more than arrived, while a comment above the code said it could not happen. deposit now measures the balance either side and refuses a shortfall.",
+    ],
+    capabilityProof:
+      "Built a Java 21 / Spring Boot double-entry ledger on PostgreSQL with database-enforced append-only history, constraint-backed idempotency, row-locked spending, transactional invoice settlement and bidirectional reconciliation, covered by 261 tests. The chain rail has run end to end against a local node; it has never been deployed to a public network and is unaudited.",
+  },
+
   // ─── EXPERIMENTS ────────────────────────────────────────────────────────────
   {
     id: "cf-satellite",
     slug: "cf-satellite",
     title: "CF Satellite Suite",
-    systemId: "VAULT.08",
+    systemId: "VAULT.09",
     tagline: "A toolkit for print-on-demand creators - mockups, collages, bulk exports.",
     description:
       "A suite of browser tools for print-on-demand / Etsy creators: a mockup visualiser with drag/resize/rotate (Fabric.js), a collage maker, a bulk-mockup generator with ZIP export, and prompt generators. Five tools are functional today; the rest are scaffolded.",
@@ -335,7 +393,7 @@ export const projects: Project[] = [
     id: "creatoros",
     slug: "creatoros",
     title: "CreatorOS",
-    systemId: "VAULT.09",
+    systemId: "VAULT.10",
     tagline: "A desktop command centre for live streamers - unified chat, AI clip detection, local-first.",
     description:
       "An Electron desktop app that pulls OBS, Twitch, YouTube, and Kick into one dashboard: mirrored multi-platform chat, chat-spike + keyword moment detection, FFmpeg clip generation, and local AI suggestions/summaries via Ollama. An MVP - Twitch and OBS are real integrations; YouTube and Kick are mocked.",

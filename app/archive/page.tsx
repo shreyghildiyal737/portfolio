@@ -172,7 +172,7 @@ export default function ArchivePage() {
 
           <Entry label="EXPERIMENT.01" title="Finishing the CF Satellite suite">
             <p>
-              CF Satellite (VAULT.08) is a toolkit for print-on-demand creators - five of sixteen planned tools are
+              CF Satellite (VAULT.09) is a toolkit for print-on-demand creators - five of sixteen planned tools are
               functional today (the Fabric.js mockup editor, collage maker, bulk-ZIP export, and a couple of
               generators); the rest are scaffolded.
             </p>

@@ -30,6 +30,7 @@ const META: Record<string, { domain: string; category: string; status: string }>
   fixflow: { domain: "property", category: "ventures", status: "Pitching" },
   sitescribe: { domain: "construction", category: "ventures", status: "Pitching" },
   cypherlink: { domain: "music", category: "ventures", status: "Backend built" },
+  "settletrust-ledger": { domain: "finance", category: "open-source", status: "Source public" },
   "temple-yoga": { domain: "wellness", category: "ventures", status: "Specced" },
   "cf-satellite": { domain: "creator", category: "experiments", status: "Experiment" },
   creatoros: { domain: "creator", category: "experiments", status: "MVP" },
@@ -39,6 +40,7 @@ const FILTERS = [
   { key: "all", label: "All" },
   { key: "shipped", label: "Shipped" },
   { key: "ventures", label: "Ventures" },
+  { key: "open-source", label: "Open source" },
   { key: "experiments", label: "Experiments" },
 ];
 

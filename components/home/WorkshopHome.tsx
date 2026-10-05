@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { WorkshopShell } from "@/components/workshop/WorkshopShell";
+import { projects } from "@/data/projects";
 
 /**
  * Home - faithful warm-paper port of Stitch's "Inventor's Workshop" home.
@@ -194,7 +195,7 @@ export function WorkshopHome() {
               <Link href="/projects" className="idw-cta group block p-6 cursor-crosshair" style={{ border: "1px solid var(--idw-ink)" }}>
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex items-center gap-6">
-                    <span className="idw-mono text-[15px] md:text-[17px]">10 systems across 8 domains</span>
+                    <span className="idw-mono text-[15px] md:text-[17px]">{projects.length} systems across 8 domains</span>
                     <div className="hidden md:flex gap-2">
                       {DOMAIN_DOTS.map((c, i) => (
                         <span key={i} className="w-2 h-2 rounded-full" style={{ background: c }} />

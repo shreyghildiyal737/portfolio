@@ -29,6 +29,7 @@ const META: Record<string, { domain: string; status: string }> = {
   fixflow: { domain: "PROPERTY", status: "Pitching" },
   sitescribe: { domain: "CONSTRUCTION", status: "Pitching" },
   cypherlink: { domain: "MUSIC", status: "Backend built" },
+  "settletrust-ledger": { domain: "FINANCE", status: "Source public" },
   "temple-yoga": { domain: "WELLNESS", status: "Specced" },
   "cf-satellite": { domain: "CREATOR", status: "Experiment" },
   creatoros: { domain: "CREATOR", status: "MVP" },
