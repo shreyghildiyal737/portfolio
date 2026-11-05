@@ -7,6 +7,8 @@ import type { AnswerSource, ChatResponse, RetrievedChunk } from "@/lib/rag/types
 // The fallback path reads the corpus from disk, so this must run on Node.
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+// Worst case is an 8s embedding plus two 8s generation attempts (see lib/rag/gemini.ts).
+export const maxDuration = 30;
 
 const MAX_MESSAGE_LENGTH = 1000;
 const INSUFFICIENT =

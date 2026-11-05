@@ -8,14 +8,23 @@ import "server-only"; // server-only: keeps the API key out of any client bundle
 const API_BASE = "https://generativelanguage.googleapis.com/v1beta";
 
 const EMBED_MODEL = process.env.GEMINI_EMBED_MODEL ?? "gemini-embedding-001";
-const CHAT_MODEL = process.env.GEMINI_CHAT_MODEL ?? "gemini-2.0-flash";
+// Tried in order. The "-latest" aliases follow Google's current release, so a
+// retired model (gemini-2.0-flash went in 2026 and silently pushed every answer
+// into fallback) cannot take the assistant down again. Lite leads because it
+// answers in about two seconds and the full model is often at capacity on the
+// free tier; summarising a handful of retrieved passages does not need more.
+const CHAT_MODELS = [
+  process.env.GEMINI_CHAT_MODEL,
+  "gemini-flash-lite-latest",
+  "gemini-flash-latest",
+].filter((m, i, all): m is string => Boolean(m) && all.indexOf(m) === i);
 
 // Must match the pgvector column dimension in Supabase (vector(768)).
 export const EMBED_DIMENSIONS = 768;
 
-// Kept under the platform function budget so our own graceful fallback fires
-// before the host kills the request.
-const REQUEST_TIMEOUT_MS = 9_000;
+// Per call. One embedding plus two chat attempts stays inside the chat route's
+// maxDuration, so our own graceful fallback fires before the host kills the request.
+const REQUEST_TIMEOUT_MS = 8_000;
 
 export function isGeminiConfigured(): boolean {
   return Boolean(process.env.GEMINI_API_KEY);
@@ -25,6 +34,12 @@ function apiKey(): string {
   const key = process.env.GEMINI_API_KEY;
   if (!key) throw new Error("GEMINI_API_KEY is not set");
   return key;
+}
+
+class GeminiHttpError extends Error {
+  constructor(readonly status: number, detail: string) {
+    super(`Gemini API ${status}: ${detail.slice(0, 300)}`);
+  }
 }
 
 async function postJson(url: string, body: unknown): Promise<unknown> {
@@ -37,7 +52,7 @@ async function postJson(url: string, body: unknown): Promise<unknown> {
   });
   if (!res.ok) {
     const detail = await res.text().catch(() => "");
-    throw new Error(`Gemini API ${res.status}: ${detail.slice(0, 300)}`);
+    throw new GeminiHttpError(res.status, detail);
   }
   return res.json();
 }
@@ -74,12 +89,39 @@ export async function generateEmbedding(
   return normalize(values);
 }
 
-/** Generate a grounded answer. Returns plain text; throws on API failure. */
+// Worth moving to the next model: retired (404), rate limited (429), overloaded
+// (5xx) or timed out. Anything else, such as a bad key, fails the same everywhere.
+function isModelSpecific(err: unknown): boolean {
+  if (err instanceof GeminiHttpError) {
+    return err.status === 404 || err.status === 429 || err.status >= 500;
+  }
+  return err instanceof Error && (err.name === "TimeoutError" || err.name === "AbortError");
+}
+
+/** Generate a grounded answer. Returns plain text; throws once every model has failed. */
 export async function generateAnswer(
   systemPrompt: string,
   userPrompt: string
 ): Promise<string> {
-  const url = `${API_BASE}/models/${CHAT_MODEL}:generateContent`;
+  let lastError: unknown;
+  for (const model of CHAT_MODELS) {
+    try {
+      return await generateWith(model, systemPrompt, userPrompt);
+    } catch (err) {
+      lastError = err;
+      if (!isModelSpecific(err)) break;
+      console.warn(`[gemini] ${model} unavailable, trying the next model:`, err);
+    }
+  }
+  throw lastError;
+}
+
+async function generateWith(
+  model: string,
+  systemPrompt: string,
+  userPrompt: string
+): Promise<string> {
+  const url = `${API_BASE}/models/${model}:generateContent`;
   const data = (await postJson(url, {
     systemInstruction: { parts: [{ text: systemPrompt }] },
     contents: [{ role: "user", parts: [{ text: userPrompt }] }],
@@ -97,6 +139,6 @@ export async function generateAnswer(
     .join("")
     .trim();
 
-  if (!text) throw new Error("Gemini returned an empty answer");
+  if (!text) throw new Error(`${model} returned an empty answer`);
   return text;
 }

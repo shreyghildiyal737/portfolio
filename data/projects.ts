@@ -205,7 +205,7 @@ export const projects: Project[] = [
     architectureLayers: [
       {
         name: "Pluggable AI",
-        detail: "Two interchangeable AI paths behind one interface: a mock path that runs the whole workflow with no paid APIs, and a live path using Groq Whisper (transcription) + Gemini 2.0 Flash (report extraction), selected by env var.",
+        detail: "Two interchangeable AI paths behind one interface: a mock path that runs the whole workflow with no paid APIs, and a live path using Groq Whisper (transcription) + Gemini Flash (report extraction), selected by env var.",
       },
       {
         name: "Spring backend",

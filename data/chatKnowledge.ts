@@ -125,7 +125,7 @@ export const knowledgeBase: KnowledgeEntry[] = [
     engineer: {
       lede: "AI behind a clean seam: an interface with interchangeable mock and live implementations, so the workflow is testable and the model is a swappable dependency.",
       bullets: [
-        "SiteScribe: two AI paths behind one interface - a mock path (no paid APIs) and a live path (Groq Whisper transcription → Gemini 2.0 Flash report extraction), chosen by env var",
+        "SiteScribe: two AI paths behind one interface - a mock path (no paid APIs) and a live path (Groq Whisper transcription → Gemini Flash report extraction), chosen by env var",
         "Stores the raw transcript, the structured JSON, and the final approved text - so the human edit is auditable against the model output",
         "Gaeilge / mixed-language support designed in from the data model up, not bolted on",
         "CreatorOS: keyword + chat-spike moment detection drives FFmpeg clip extraction; Ollama provides local inference for summaries",
@@ -237,7 +237,7 @@ export const knowledgeBase: KnowledgeEntry[] = [
     engineer: {
       lede: "Java 21 / Spring Boot 3 backend with a pluggable AI seam, real auth, and per-company isolation behind a capture → draft → approve → export flow.",
       bullets: [
-        "Two interchangeable AI paths behind one interface: a mock path (no paid APIs) and a live path (Groq Whisper + Gemini 2.0 Flash), selected by env var",
+        "Two interchangeable AI paths behind one interface: a mock path (no paid APIs) and a live path (Groq Whisper + Gemini Flash), selected by env var",
         "Spring Boot 3 with JPA, Flyway migrations, and OpenAPI docs",
         "Real BCrypt + JWT auth and per-company data isolation",
         "Storage abstraction (local or Supabase), Resend email, and Sentry monitoring already wired in",
