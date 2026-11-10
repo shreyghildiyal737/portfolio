@@ -465,7 +465,7 @@ export const knowledgeBase: KnowledgeEntry[] = [
   },
   {
     id: "timeline",
-    triggers: ["timeline", "career", "history", "background", "journey", "gap", "career gap", "phases", "story", "arc", "onedirect", "ngo", "india"],
+    triggers: ["timeline", "career", "work history", "career history", "employment history", "background", "journey", "gap", "career gap", "phases", "story", "arc", "onedirect", "ngo", "india"],
     recruiter: {
       lede: "A deliberate arc, India → Ireland: CS foundations → first production environment → a human chapter of service and exams → an MSc and a wave of building.",
       bullets: [
@@ -519,6 +519,14 @@ const fallbackEntry: KnowledgeEntry = {
   context: { type: "profile" },
 };
 
+// Triggers match at the start of a word, not anywhere inside one: plain substring
+// matching sent "medical history" to the timeline because "story" sits inside
+// "history". A prefix still matches, so stems like "reconcil" keep working.
+function matchesAtWordStart(text: string, trigger: string): boolean {
+  const escaped = trigger.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return new RegExp(`(^|[^\\p{L}\\p{N}])${escaped}`, "u").test(text);
+}
+
 export function retrieveResponse(query: string): KnowledgeEntry {
   if (!query.trim()) return fallbackEntry;
 
@@ -527,7 +535,7 @@ export function retrieveResponse(query: string): KnowledgeEntry {
   const scored = knowledgeBase.map((entry) => ({
     entry,
     score: entry.triggers.reduce(
-      (acc, trigger) => (normalized.includes(trigger.toLowerCase()) ? acc + 1 : acc),
+      (acc, trigger) => (matchesAtWordStart(normalized, trigger.toLowerCase()) ? acc + 1 : acc),
       0
     ),
   }));
