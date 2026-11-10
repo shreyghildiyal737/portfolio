@@ -166,6 +166,15 @@ Source: Portfolio
 Content:
 CypherLink is a collaborative operating system for independent music culture: a single home for scenes that today coordinate across scattered tools. The backend is built and documented; the product is in the pitch stage. It is a NestJS and TypeScript backend with PostgreSQL via Prisma, Redis with BullMQ for background jobs, Socket.IO for real-time collaboration, JWT access tokens with HTTP-only refresh-cookie rotation, and S3-compatible object storage, documented with OpenAPI. The deliberate choice was to get the unglamorous foundations right first so collaborative features have something solid to stand on.
 
+## Project - SettleTrust Ledger
+
+Type: Project
+Tags: fintech, ledger, double-entry, java, spring-boot, postgresql, jooq, flyway, settletrust, open-source
+Source: Portfolio
+
+Content:
+SettleTrust Ledger is the backend half of SettleTrust, a cross-border trade-settlement platform whose invoice lifecycle is a twenty-state machine. It is a Java 21 double-entry ledger on PostgreSQL with Spring Boot, jOOQ and Flyway, and its source is public on GitHub at github.com/shreyghildiyal737/settletrust-ledger, with 261 tests; a hosted demo is not up yet. Money is never created or destroyed by the system, it only moves: every movement is a balanced pair of entries that sum to zero, and the database refuses to rewrite history. Amounts are long minor units with the currency carried alongside, never floating point, and balances are projections summed from entries rather than stored columns. Idempotency is a unique constraint, so two racing retries pay once; spending takes a row lock on the paying account; and triggers reject every update and delete on entries and transfers. Settlement writes the invoice transition and the money movement in one transaction, into a per-invoice escrow account. A reconciler checks the books in both directions against one snapshot.
+
 ## Project - Temple Yoga Platform
 
 Type: Project

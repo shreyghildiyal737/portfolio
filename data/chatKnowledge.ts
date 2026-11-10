@@ -278,6 +278,34 @@ export const knowledgeBase: KnowledgeEntry[] = [
     context: { type: "projects", projectSlugs: ["cypherlink"] },
   },
   {
+    id: "settletrust-ledger",
+    triggers: ["settletrust", "settle trust", "ledger", "double-entry", "double entry", "settlement", "escrow", "reconcil", "idempoten"],
+    recruiter: {
+      lede: "SettleTrust Ledger is the money-moving backend of SettleTrust, a cross-border trade-settlement platform. A Java 21 double-entry ledger whose source is public on GitHub; a hosted demo is not up yet.",
+      bullets: [
+        "Java 21 and Spring Boot on PostgreSQL, with jOOQ and Flyway",
+        "Public source: github.com/shreyghildiyal737/settletrust-ledger, with 261 tests",
+        "Money is never created or destroyed by the system, it only moves, as balanced pairs of entries",
+        "Settlement writes the invoice's state change and the money movement in one transaction",
+        "Status: in progress; the invoice lifecycle is a twenty-state machine",
+      ],
+    },
+    engineer: {
+      lede: "A ledger built so that balances and status can never disagree with the history that produced them.",
+      bullets: [
+        "Append-only entries: triggers reject every update and delete on entries and transfers",
+        "Amounts in long minor units with the currency alongside, never floating point",
+        "Balances are projections summed from entries, not stored columns",
+        "Idempotency is a unique constraint, so two racing retries pay once; spending takes a row lock",
+        "A reconciler checks the books in both directions against one snapshot",
+      ],
+      deepDive:
+        "A stored balance or status can quietly disagree with the history that produced it, so this ledger derives both from an append-only log. A correction is a reversing pair of entries, never an update. Funding escrow and settling are the only invoice states that cannot simply be asserted: they write the transition and the transfer together, into a per-invoice escrow account.",
+    },
+    relatedProjects: ["settletrust-ledger"],
+    context: { type: "projects", projectSlugs: ["settletrust-ledger"] },
+  },
+  {
     id: "creatoros",
     triggers: ["creatoros", "creator", "streaming", "streamer", "obs", "twitch", "ffmpeg", "clip", "electron", "kick"],
     recruiter: {
@@ -337,7 +365,7 @@ export const knowledgeBase: KnowledgeEntry[] = [
     recruiter: {
       lede: "FinTech is a second vocabulary, not a side interest: an M.Sc Economics & Financial Technology at the University of Galway, read as a lens on systems rather than a credential.",
       bullets: [
-        "M.Sc Economics & Financial Technology, University of Galway - 2025 to present",
+        "M.Sc Economics & Financial Technology, University of Galway - 2025 to 2026, completed",
         "FinTech foundations certification from Wharton (Coursera), plus IBM and Google data-analytics certs",
         "Markets, risk, and financial models as a critical lens that transfers directly to software",
         "Relocated India → Ireland in 2025 to pursue it",
